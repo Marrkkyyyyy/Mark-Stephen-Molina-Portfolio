@@ -1,0 +1,1108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Mark Stephen Molina — Flutter &amp; Full-Stack Developer</title>
+<meta name="description" content="Flutter developer building production mobile apps and the serverless backends behind them. Full-Stack Developer at HeyJag (Florida, USA) — shipped a three-app marketplace platform with 15+ Cloud Functions and 7+ POS integrations. BS Information Technology, Cum Laude 2024.">
+<meta name="author" content="Mark Stephen Molina">
+<meta name="theme-color" content="#0b0f14">
+<link rel="canonical" href="https://marrkkyyyyy.github.io/">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Mark Stephen Molina">
+<meta property="og:title" content="Mark Stephen Molina — Flutter &amp; Full-Stack Developer">
+<meta property="og:description" content="Production Flutter apps and the serverless backends behind them. Three-app marketplace platform, native platform channels, award-winning e-commerce.">
+<meta property="og:url" content="https://marrkkyyyyy.github.io/">
+<meta property="og:image" content="https://marrkkyyyyy.github.io/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mark Stephen Molina — Flutter &amp; Full-Stack Developer">
+<meta name="twitter:description" content="Production Flutter apps and the serverless backends behind them.">
+<meta name="twitter:image" content="https://marrkkyyyyy.github.io/assets/img/og-image.png">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/sections.css">
+
+<script>
+  /* Set the theme before first paint so there is no flash of the wrong one. */
+  try {
+    var t = localStorage.getItem('theme');
+    if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  } catch (e) {}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mark Stephen Molina",
+  "jobTitle": "Full-Stack Mobile Developer",
+  "url": "https://marrkkyyyyy.github.io/",
+  "email": "mailto:markstephenmolina8@gmail.com",
+  "image": "https://marrkkyyyyy.github.io/assets/img/profile.webp",
+  "sameAs": ["https://github.com/Marrkkyyyyy"],
+  "address": { "@type": "PostalAddress", "addressCountry": "PH" },
+  "worksFor": { "@type": "Organization", "name": "HeyJag", "address": "Florida, USA" },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Southeast Asian Institute of Technology, Inc.",
+    "address": "South Cotabato, Philippines"
+  },
+  "knowsAbout": ["Flutter","Dart","Firebase","Cloud Functions","Node.js","Stripe Connect",
+    "Google Maps Platform","REST APIs","Serverless Architecture","Cross-platform Development"]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="i-github" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-smartphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01M6 18h.01"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></symbol>
+  <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2M15 8V2"/><path d="M18 8v3a6 6 0 0 1-12 0V8Z"/></symbol>
+  <symbol id="i-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></symbol>
+  <symbol id="i-blocks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="14" y="3" rx="1"/><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/><path d="M14 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1h-6"/></symbol>
+  <symbol id="i-graduation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12.5V17c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-4.5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+  <symbol id="i-vote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><path d="M5 7c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v9H5z"/><path d="M2 20h20"/></symbol>
+</defs></svg>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a class="brand" href="#top" aria-label="Mark Stephen Molina — home">
+      <span class="brand__mark" aria-hidden="true">MSM</span>
+      <span class="brand__name">Mark&nbsp;Stephen&nbsp;Molina</span>
+    </a>
+
+    <nav class="nav" aria-label="Sections">
+      <ul class="nav__list" id="navList">
+        <li><a class="nav__link" href="#about">About</a></li>
+        <li><a class="nav__link" href="#experience">Experience</a></li>
+        <li><a class="nav__link" href="#work">Work</a></li>
+        <li><a class="nav__link" href="#skills">Skills</a></li>
+        <li><a class="nav__link" href="#credentials">Credentials</a></li>
+        <li><a class="nav__link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <button class="icon-btn icon-btn--theme" id="themeToggle" type="button"
+              aria-label="Switch colour theme">
+        <svg class="icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        <svg class="icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
+      <a class="icon-btn" href="https://github.com/Marrkkyyyyy" target="_blank" rel="noopener"
+         aria-label="GitHub profile">
+        <svg aria-hidden="true"><use href="#i-github"/></svg>
+      </a>
+      <button class="icon-btn nav-toggle" id="navToggle" type="button"
+              aria-expanded="false" aria-controls="navPanel" aria-label="Open menu">
+        <svg class="icon-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="nav-panel" id="navPanel" aria-label="Sections" hidden>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#credentials">Credentials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__grid">
+      <div>
+        <p class="eyebrow">Full-Stack Mobile Developer</p>
+
+        <h1 class="hero__title">I build production <em>Flutter apps</em> and the backends behind them.</h1>
+
+        <p class="hero__lead">
+          Currently lead developer at <strong>HeyJag</strong> (Florida, USA), where I shipped a
+          three-app marketplace platform — customer, merchant and driver — on Flutter and a
+          serverless Firebase backend. Clients across the United States, Australia and Central America.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="assets/docs/Mark_Stephen_Molina_Resume.pdf"
+             target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-download"/></svg> Download résumé
+          </a>
+          <a class="btn btn--outline" href="#work">
+            View selected work <svg aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="mailto:markstephenmolina8@gmail.com">
+            <svg aria-hidden="true"><use href="#i-mail"/></svg> Email me
+          </a>
+        </div>
+      </div>
+
+      <figure class="hero__portrait">
+        <picture>
+          <source srcset="assets/img/profile.webp 900w, assets/img/profile@2x.webp 1800w"
+                  sizes="(min-width: 900px) 330px, 62vw" type="image/webp">
+          <img src="assets/img/profile.webp" width="900" height="1125" fetchpriority="high"
+               alt="Mark Stephen Molina">
+        </picture>
+        <figcaption class="hero__badge">
+          <span class="dot" aria-hidden="true"></span> Open to new roles
+        </figcaption>
+      </figure>
+    </div>
+
+    <dl class="proof">
+      <div class="stat"><dt class="visually-hidden">Apps shipped in one ecosystem</dt>
+        <dd style="margin:0"><span class="stat__value">3</span>
+        <span class="stat__label">apps shipped in one live ecosystem</span></dd></div>
+      <div class="stat"><dt class="visually-hidden">Cloud Functions</dt>
+        <dd style="margin:0"><span class="stat__value">15+</span>
+        <span class="stat__label">Firebase Cloud Functions in production</span></dd></div>
+      <div class="stat"><dt class="visually-hidden">POS integrations</dt>
+        <dd style="margin:0"><span class="stat__value">7+</span>
+        <span class="stat__label">enterprise POS systems integrated</span></dd></div>
+      <div class="stat"><dt class="visually-hidden">Degree</dt>
+        <dd style="margin:0"><span class="stat__value">Cum&nbsp;Laude</span>
+        <span class="stat__label">BS Information Technology, 2024</span></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section section--bordered" id="about" aria-labelledby="about-h">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">About</p>
+      <h2 id="about-h">Mobile engineer who owns the whole stack</h2>
+    </div>
+
+    <div class="about__grid">
+      <div class="about__body reveal">
+        <p>
+          I'm a Flutter developer from South Cotabato, Philippines. Most of my work has been
+          building apps that have to hold up in the real world — marketplaces moving live orders,
+          drivers on unreliable connections, merchants who need their point-of-sale to stay in
+          sync. That has pushed me well past the UI layer into Cloud Functions, payment
+          infrastructure, background services and third-party integrations.
+        </p>
+        <p>
+          At <strong>HeyJag</strong> I architected and built a three-app ecosystem — a customer
+          super-app, a merchant dashboard and a driver operations platform — plus the serverless
+          backend that ties them together: automated order assignment, POS synchronisation on
+          30-minute cycles, and Stripe Connect payouts. Before that I worked with agencies and
+          clients in <strong>Sydney</strong>, <strong>Honduras</strong> and for the Philippine
+          <strong>Department of Agriculture</strong>, including native platform-channel work in
+          Swift and C++ for a cross-platform desktop monitoring tool.
+        </p>
+
+        <blockquote class="pullquote">
+          <p>Most Outstanding ITE — sole awardee from the graduating batch.</p>
+          <cite>Philippine Society of IT Students, June 2024 — for academics, leadership and
+          contributions to the IT field</cite>
+        </blockquote>
+      </div>
+
+      <div class="card reveal" style="--reveal-delay:80ms">
+        <dl class="facts">
+          <div><dt>Location</dt><dd>South Cotabato, Philippines · remote worldwide</dd></div>
+          <div><dt>Focus</dt><dd>Flutter · Firebase · serverless backends</dd></div>
+          <div><dt>Education</dt><dd>BS Information Technology, <strong>Cum Laude</strong> (2020–2024)<br>
+            <span class="text-subtle">Southeast Asian Institute of Technology, Inc.</span></dd></div>
+          <div><dt>Clients</dt><dd>United States · Australia · Honduras · Philippines</dd></div>
+          <div><dt>Availability</dt><dd>Open to full-time and contract roles</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="section section--bordered" id="experience" aria-labelledby="exp-h">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Experience</p>
+      <h2 id="exp-h">Client work across four countries</h2>
+      <p>From a government e-commerce pilot to a live marketplace platform competing with
+         Uber and DoorDash.</p>
+    </div>
+
+    <div class="timeline">
+
+      <article class="role role--current reveal">
+        <p class="role__period">Jan 2025 — Present</p>
+        <div class="role__head">
+          <h3 class="role__title">Full-Stack Developer</h3>
+          <span class="role__org">HeyJag</span>
+        </div>
+        <p class="role__where">Florida, USA · Remote</p>
+        <p class="role__summary">
+          Lead developer for the HeyJag ecosystem — three interconnected Flutter apps
+          (Customer, Merchant, Driver) forming a complete marketplace platform.
+        </p>
+        <ul class="role__points">
+          <li>Architected and built a <strong>complete three-app ecosystem</strong> serving customers, merchants and drivers</li>
+          <li>Built a serverless backend with <strong>15+ Firebase Functions</strong> handling automated order assignment, POS synchronisation and payment processing</li>
+          <li>Integrated <strong>7+ enterprise POS systems</strong> including Clover, Square and Toast, with automated 30-minute sync cycles</li>
+          <li>Developed an intelligent driver-matching system with retry logic and automated notification workflows</li>
+          <li>Shipped the driver app with <strong>KYC, document verification and face recognition</strong>, supporting both delivery and ride-sharing</li>
+          <li>Created a <strong>Stripe Connect marketplace</strong> with automated commission splits and weekly vendor payouts</li>
+        </ul>
+        <div class="role__tech cluster">
+          <span class="chip">Flutter</span><span class="chip">Node.js</span>
+          <span class="chip">Firebase Functions</span><span class="chip">Stripe Connect</span>
+          <span class="chip">Google Maps</span><span class="chip">ML Kit</span>
+          <span class="chip">POS APIs</span><span class="chip">Background Services</span>
+        </div>
+      </article>
+
+      <article class="role reveal">
+        <p class="role__period">Dec 2024 — Apr 2025</p>
+        <div class="role__head">
+          <h3 class="role__title">Fuzion+ — Desktop Developer</h3>
+          <span class="role__org">Nebulex</span>
+        </div>
+        <p class="role__where">Sydney, Australia · Remote</p>
+        <p class="role__summary">
+          Cross-platform desktop application for real-time system monitoring, with native
+          platform integration on both macOS and Windows.
+        </p>
+        <ul class="role__points">
+          <li>Built Fuzion+ in Flutter with <strong>native platform channels</strong> — Swift IOKit on macOS, C++ PDH and Win32 APIs on Windows</li>
+          <li>Implemented a multi-window architecture with background tray management</li>
+          <li>Integrated the Nebulex enterprise customer portal API for dynamic settings synchronisation</li>
+        </ul>
+        <div class="role__tech cluster">
+          <span class="chip">Flutter</span><span class="chip">Swift</span><span class="chip">C++</span>
+          <span class="chip">macOS IOKit</span><span class="chip">Windows API</span>
+        </div>
+      </article>
+
+      <article class="role reveal">
+        <p class="role__period">Aug — Nov 2024</p>
+        <div class="role__head">
+          <h3 class="role__title">Hoya Job Search — Mobile Developer</h3>
+          <span class="role__org">Nebulex</span>
+        </div>
+        <p class="role__where">Sydney, Australia · Remote</p>
+        <p class="role__summary">
+          Converted an established web platform into a cross-platform mobile application.
+        </p>
+        <ul class="role__points">
+          <li>Ported a JavaScript and .NET web platform to a single Flutter codebase for iOS and Android</li>
+          <li>Integrated REST APIs and implemented <strong>OAuth2</strong> authentication</li>
+        </ul>
+        <div class="role__tech cluster">
+          <span class="chip">Flutter</span><span class="chip">REST APIs</span>
+          <span class="chip">OAuth2</span><span class="chip">.NET backend</span>
+        </div>
+      </article>
+
+      <article class="role reveal">
+        <p class="role__period">Jun — Dec 2024</p>
+        <div class="role__head">
+          <h3 class="role__title">MaxTracks — Mobile Developer</h3>
+          <span class="role__org">Max Shipping</span>
+        </div>
+        <p class="role__where">Honduras, Central America · Remote</p>
+        <p class="role__summary">
+          Package tracking and inventory app for a shipping operator working across multiple
+          locations.
+        </p>
+        <ul class="role__points">
+          <li>Built comprehensive package tracking with <strong>barcode scanning</strong> and cloud storage</li>
+          <li>Enhanced inventory management across multiple warehouse locations</li>
+          <li>Reduced errors in package handling and improved day-to-day operational efficiency</li>
+        </ul>
+        <div class="role__tech cluster">
+          <span class="chip">Flutter</span><span class="chip">Firebase</span>
+          <span class="chip">Barcode Scanning</span><span class="chip">Cloud Storage</span>
+        </div>
+      </article>
+
+      <article class="role reveal">
+        <p class="role__period">Sep 2023 — Apr 2024</p>
+        <div class="role__head">
+          <h3 class="role__title">FarmFinds — Developer</h3>
+          <span class="role__org">Department of Agriculture XII</span>
+        </div>
+        <p class="role__where">Marbel, Philippines</p>
+        <p class="role__summary">
+          E-commerce platform connecting local farmers directly with customers. Winner of the
+          Young Farmers Challenge Start-Up, Provincial Level 2023.
+        </p>
+        <ul class="role__points">
+          <li>Built an e-commerce app for the <strong>Department of Agriculture</strong> connecting farmers and consumers</li>
+          <li>Implemented product catalogue, order management and location-based vendor discovery</li>
+          <li>Took the project through provincial and regional competition rounds</li>
+        </ul>
+        <div class="role__tech cluster">
+          <span class="chip">Flutter</span><span class="chip">Firebase</span>
+          <span class="chip">Google Maps</span><span class="chip">Payment Gateway</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section class="section section--bordered" id="work" aria-labelledby="work-h">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Selected work</p>
+      <h2 id="work-h">Three projects worth explaining properly</h2>
+      <p>A live marketplace platform, a native desktop tool, and an award-winning
+         government e-commerce pilot.</p>
+    </div>
+
+    <!-- ---------- HeyJag ---------- -->
+    <article class="case is-textonly reveal" id="case-heyjag" data-case>
+      <div class="case__grid">
+        <div class="case__body">
+          <header class="case__head">
+            <div class="case__title">
+              <h3>HeyJag</h3>
+              <span class="chip chip--accent">Marketplace platform</span>
+            </div>
+            <p class="case__tagline">
+              A six-service marketplace built as three interconnected Flutter apps on one
+              serverless backend — the kind of scope usually split across a team.
+            </p>
+            <p class="case__meta">
+              <span><b>Role</b> Lead developer</span>
+              <span><b>Client</b> HeyJag, Florida USA</span>
+              <span><b>Since</b> Jan 2025</span>
+            </p>
+          </header>
+
+          <dl class="case__metrics">
+            <div class="stat"><dt class="visually-hidden">Apps</dt><dd style="margin:0">
+              <span class="stat__value">3</span><span class="stat__label">interconnected apps</span></dd></div>
+            <div class="stat"><dt class="visually-hidden">Cloud Functions</dt><dd style="margin:0">
+              <span class="stat__value">15+</span><span class="stat__label">Cloud Functions</span></dd></div>
+            <div class="stat"><dt class="visually-hidden">POS systems</dt><dd style="margin:0">
+              <span class="stat__value">7+</span><span class="stat__label">POS systems</span></dd></div>
+            <div class="stat"><dt class="visually-hidden">Sync cycle</dt><dd style="margin:0">
+              <span class="stat__value">30<span style="font-size:.5em">min</span></span>
+              <span class="stat__label">automated sync cycle</span></dd></div>
+          </dl>
+
+          <div class="tabs" role="tablist" aria-label="HeyJag applications">
+            <button class="tab" role="tab" id="tab-customer" aria-controls="panel-customer" aria-selected="true">Customer</button>
+            <button class="tab" role="tab" id="tab-merchant" aria-controls="panel-merchant" aria-selected="false" tabindex="-1">Merchant</button>
+            <button class="tab" role="tab" id="tab-driver"   aria-controls="panel-driver"   aria-selected="false" tabindex="-1">Driver</button>
+          </div>
+
+          <div role="tabpanel" id="panel-customer" aria-labelledby="tab-customer" tabindex="0">
+            <ul class="case__points">
+              <li>Consumer <strong>super-app</strong> spanning ride-hailing, food delivery and four further services</li>
+              <li><strong>Real-time order pipeline</strong> — status updates propagate instantly across customer, merchant and driver</li>
+              <li>Live driver tracking on Google Maps with route optimisation</li>
+              <li>Stripe payments with automated commission splits at checkout</li>
+            </ul>
+          </div>
+          <div role="tabpanel" id="panel-merchant" aria-labelledby="tab-merchant" tabindex="0" hidden>
+            <ul class="case__points">
+              <li><strong>POS integrations</strong> with Clover, Square, Toast and four more, synced every 30 minutes</li>
+              <li>Revenue analytics and <strong>multi-location management</strong> in one dashboard</li>
+              <li>Menu and inventory kept consistent between the POS and the marketplace</li>
+              <li>Weekly automated vendor payouts through Stripe Connect</li>
+            </ul>
+          </div>
+          <div role="tabpanel" id="panel-driver" aria-labelledby="tab-driver" tabindex="0" hidden>
+            <ul class="case__points">
+              <li><strong>KYC onboarding</strong> with document verification and ML Kit face recognition</li>
+              <li>Dual-service support — the same driver handles food delivery and ride-sharing</li>
+              <li><strong>Background location services</strong> tuned for battery life on long shifts</li>
+              <li>Intelligent job matching with retry logic and multi-channel notifications</li>
+            </ul>
+          </div>
+
+          <div class="cluster" style="margin-top:var(--sp-6)">
+            <span class="chip">Flutter</span><span class="chip">Firebase</span>
+            <span class="chip">Node.js</span><span class="chip">Stripe Connect</span>
+            <span class="chip">Google Maps</span><span class="chip">ML Kit</span>
+            <span class="chip">POS APIs</span>
+          </div>
+        </div>
+
+        <div class="case__media">
+          <div class="gallery" data-gallery="heyjag_customer" data-panel="panel-customer">
+            <div class="gallery__rail">
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/heyjag_customer/01_home.webp" alt="HeyJag customer app — home"></div></figure>
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/heyjag_customer/02_order_tracking.webp" alt="HeyJag customer app — live order tracking"></div></figure>
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/heyjag_customer/03_checkout.webp" alt="HeyJag customer app — checkout"></div></figure>
+            </div>
+            <p class="gallery__caption">Customer super-app</p>
+          </div>
+          <div class="gallery" data-gallery="heyjag_merchant" data-panel="panel-merchant" hidden>
+            <div class="gallery__rail">
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/heyjag_merchant/01_dashboard.webp" alt="HeyJag merchant app — dashboard"></div></figure>
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/heyjag_merchant/02_orders.webp" alt="HeyJag merchant app — orders"></div></figure>
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/heyjag_merchant/03_analytics.webp" alt="HeyJag merchant app — analytics"></div></figure>
+            </div>
+            <p class="gallery__caption">Merchant dashboard</p>
+          </div>
+          <div class="gallery" data-gallery="heyjag_driver" data-panel="panel-driver" hidden>
+            <div class="gallery__rail">
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/heyjag_driver/01_kyc.webp" alt="HeyJag driver app — KYC onboarding"></div></figure>
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/heyjag_driver/02_active_delivery.webp" alt="HeyJag driver app — active delivery"></div></figure>
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/heyjag_driver/03_earnings.webp" alt="HeyJag driver app — earnings"></div></figure>
+            </div>
+            <p class="gallery__caption">Driver operations</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---------- Fuzion+ ---------- -->
+    <article class="case case--reverse is-textonly reveal" id="case-fuzion" data-case>
+      <div class="case__grid">
+        <div class="case__body">
+          <header class="case__head">
+            <div class="case__title">
+              <h3>Fuzion+</h3>
+              <span class="chip chip--accent">Desktop · native channels</span>
+            </div>
+            <p class="case__tagline">
+              A cross-platform system monitor that talks directly to macOS and Windows hardware
+              APIs — Flutter on top, native code underneath.
+            </p>
+            <p class="case__meta">
+              <span><b>Client</b> Nebulex, Sydney</span>
+              <span><b>Period</b> Dec 2024 — Apr 2025</span>
+            </p>
+          </header>
+
+          <ul class="case__points">
+            <li>Real-time <strong>CPU, RAM, network and disk</strong> monitoring on one dashboard</li>
+            <li>CPU temperature read from the <strong>macOS SMC via Swift IOKit</strong>, and from Windows through C++ PDH and Win32 APIs</li>
+            <li>Multi-window architecture with background tray management</li>
+            <li>Automated reboot scheduling</li>
+            <li>Nebulex enterprise portal API integration for dynamic settings sync</li>
+          </ul>
+
+          <div class="cluster" style="margin-top:var(--sp-6)">
+            <span class="chip">Flutter</span><span class="chip">Swift</span>
+            <span class="chip">IOKit</span><span class="chip">C++</span>
+            <span class="chip">Win32 PDH</span><span class="chip">Platform Channels</span>
+          </div>
+        </div>
+
+        <div class="case__media">
+          <div class="gallery" data-gallery="fuzion_plus" data-kind="desktop">
+            <figure class="window">
+              <div class="window__bar" aria-hidden="true">
+                <span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span>
+                <span class="window__title">Fuzion+</span>
+              </div>
+              <div class="window__body">
+                <img data-src="assets/screenshots/fuzion_plus/01_dashboard.webp" alt="Fuzion+ system monitoring dashboard">
+              </div>
+            </figure>
+            <p class="gallery__caption">Swift · IOKit · C++ · Win32 PDH</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---------- FarmFinds ---------- -->
+    <article class="case is-textonly reveal" id="case-farmfinds" data-case>
+      <div class="case__grid">
+        <div class="case__body">
+          <header class="case__head">
+            <div class="case__title">
+              <h3>FarmFinds</h3>
+              <button class="chip chip--award" type="button"
+                      data-cert="yfc-provincial-eligibility-2023">
+                🏆 Young Farmers Challenge — Provincial Level Winner, 2023
+              </button>
+            </div>
+            <p class="case__tagline">
+              A farmer-to-consumer marketplace built for the Philippine Department of
+              Agriculture, taken from concept through provincial and regional competition rounds.
+            </p>
+            <p class="case__meta">
+              <span><b>Client</b> Department of Agriculture XII</span>
+              <span><b>Period</b> Sep 2023 — Apr 2024</span>
+            </p>
+          </header>
+
+          <ul class="case__points">
+            <li>Direct <strong>farmer-to-consumer marketplace</strong> for vegetables and fruit</li>
+            <li>Product catalogue with categories and order management</li>
+            <li>Location-based vendor discovery on Google Maps</li>
+            <li>Secure payment gateway integration</li>
+          </ul>
+
+          <div class="cluster" style="margin-top:var(--sp-6)">
+            <span class="chip">Flutter</span><span class="chip">Firebase</span>
+            <span class="chip">Google Maps</span><span class="chip">Payment Gateway</span>
+          </div>
+        </div>
+
+        <div class="case__media">
+          <div class="gallery" data-gallery="farmfinds">
+            <div class="gallery__rail">
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/farmfinds/01_marketplace.webp" alt="FarmFinds — marketplace"></div></figure>
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/farmfinds/02_product.webp" alt="FarmFinds — product detail"></div></figure>
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/farmfinds/03_cart.webp" alt="FarmFinds — cart"></div></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= OTHER PROJECTS ================= -->
+<section class="section" aria-labelledby="other-h">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Also built</p>
+      <h2 id="other-h">Earlier &amp; personal projects</h2>
+      <p>Open-source work from university, still on GitHub.</p>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card card--hover mini reveal">
+        <div class="mini__top">
+          <span class="mini__icon"><svg aria-hidden="true"><use href="#i-graduation"/></svg></span>
+        </div>
+        <h4><a class="card__link" href="https://github.com/Marrkkyyyyy/smart-grade-viewer"
+               target="_blank" rel="noopener">Smart Grade Viewer</a></h4>
+        <p>A Flutter app that lets students check their grades without queuing at the registrar.</p>
+        <div class="cluster"><span class="chip">Flutter</span><span class="chip">Dart</span></div>
+      </article>
+
+      <article class="card card--hover mini reveal" style="--reveal-delay:80ms">
+        <div class="mini__top">
+          <span class="mini__icon"><svg aria-hidden="true"><use href="#i-book"/></svg></span>
+        </div>
+        <h4><a class="card__link" href="https://github.com/Marrkkyyyyy/library-management-system-python-tkinter"
+               target="_blank" rel="noopener">Library Management System</a></h4>
+        <p>Desktop system for book borrowing, returns, member registration and inventory tracking.</p>
+        <div class="cluster"><span class="chip">Python</span><span class="chip">Tkinter</span></div>
+      </article>
+
+      <article class="card card--hover mini reveal" style="--reveal-delay:160ms">
+        <div class="mini__top">
+          <span class="mini__icon"><svg aria-hidden="true"><use href="#i-vote"/></svg></span>
+        </div>
+        <h4><a class="card__link" href="https://github.com/Marrkkyyyyy/e-vote-system"
+               target="_blank" rel="noopener">eVote</a></h4>
+        <p>Electronic voting system with authenticated ballots and live tallying.</p>
+        <div class="cluster"><span class="chip">Flutter</span><span class="chip">Dart</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="section section--bordered" id="skills" aria-labelledby="skills-h">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Skills</p>
+      <h2 id="skills-h">What I work with</h2>
+    </div>
+
+    <div class="skills__top cluster reveal">
+      <span class="chip chip--accent chip--lg">Flutter</span>
+      <span class="chip chip--accent chip--lg">Dart</span>
+      <span class="chip chip--accent chip--lg">Firebase</span>
+      <span class="chip chip--accent chip--lg">Cloud Functions</span>
+      <span class="chip chip--accent chip--lg">Node.js</span>
+      <span class="chip chip--accent chip--lg">Serverless Architecture</span>
+      <span class="chip chip--accent chip--lg">Real-time Systems</span>
+      <span class="chip chip--accent chip--lg">Stripe Connect</span>
+      <span class="chip chip--accent chip--lg">Google Maps</span>
+      <span class="chip chip--accent chip--lg">REST APIs</span>
+      <span class="chip chip--accent chip--lg">Platform Channels</span>
+      <span class="chip chip--accent chip--lg">Cross-platform Apps</span>
+    </div>
+
+    <div class="grid grid--2">
+      <div class="card skills__group reveal">
+        <h4><svg aria-hidden="true"><use href="#i-smartphone"/></svg> Mobile &amp; desktop</h4>
+        <div class="cluster">
+          <span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">iOS</span>
+          <span class="chip">Android</span><span class="chip">macOS</span><span class="chip">Windows</span>
+          <span class="chip">Native Platform Channels</span><span class="chip">Responsive Design</span>
+          <span class="chip">Custom UI Components</span><span class="chip">Animations</span>
+        </div>
+      </div>
+
+      <div class="card skills__group reveal" style="--reveal-delay:60ms">
+        <h4><svg aria-hidden="true"><use href="#i-server"/></svg> Backend &amp; cloud</h4>
+        <div class="cluster">
+          <span class="chip">Node.js</span><span class="chip">Firebase Functions</span>
+          <span class="chip">Serverless Architecture</span><span class="chip">REST APIs</span>
+          <span class="chip">WebSockets</span><span class="chip">Push Notifications</span>
+          <span class="chip">Authentication</span><span class="chip">Scheduled Tasks</span>
+          <span class="chip">Automated Workflows</span><span class="chip">Cloud Storage</span>
+        </div>
+      </div>
+
+      <div class="card skills__group reveal" style="--reveal-delay:120ms">
+        <h4><svg aria-hidden="true"><use href="#i-database"/></svg> Data &amp; storage</h4>
+        <div class="cluster">
+          <span class="chip">Firestore</span><span class="chip">Realtime Database</span>
+          <span class="chip">SQLite</span><span class="chip">MySQL</span><span class="chip">MongoDB</span>
+          <span class="chip">Offline Storage</span><span class="chip">Data Caching</span>
+        </div>
+      </div>
+
+      <div class="card skills__group reveal" style="--reveal-delay:180ms">
+        <h4><svg aria-hidden="true"><use href="#i-plug"/></svg> Integrations</h4>
+        <div class="cluster">
+          <span class="chip">Stripe Connect</span><span class="chip">Google Maps</span>
+          <span class="chip">Clover</span><span class="chip">Square</span><span class="chip">Toast</span>
+          <span class="chip">ML Kit</span><span class="chip">QR / Barcode Scanning</span>
+          <span class="chip">Bluetooth</span><span class="chip">Social Auth</span>
+          <span class="chip">Webhooks</span><span class="chip">Email &amp; SMS Automation</span>
+        </div>
+      </div>
+
+      <div class="card skills__group reveal" style="--reveal-delay:240ms">
+        <h4><svg aria-hidden="true"><use href="#i-layout"/></svg> Frontend</h4>
+        <div class="cluster">
+          <span class="chip">State Management (Provider / GetX)</span><span class="chip">Material Design</span>
+          <span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span>
+          <span class="chip">Responsive UI</span><span class="chip">Custom Widgets</span>
+        </div>
+      </div>
+
+      <div class="card skills__group reveal" style="--reveal-delay:300ms">
+        <h4><svg aria-hidden="true"><use href="#i-terminal"/></svg> Languages &amp; tools</h4>
+        <div class="cluster">
+          <span class="chip">Dart</span><span class="chip">JavaScript</span><span class="chip">Python</span>
+          <span class="chip">Swift</span><span class="chip">C++</span><span class="chip">C</span>
+          <span class="chip">PHP</span><span class="chip">Git / GitHub</span>
+          <span class="chip">VS Code</span><span class="chip">Android Studio</span>
+          <span class="chip">Xcode</span><span class="chip">Postman</span>
+        </div>
+      </div>
+
+      <div class="card skills__group reveal" style="--reveal-delay:360ms">
+        <h4><svg aria-hidden="true"><use href="#i-blocks"/></svg> Architecture &amp; practice</h4>
+        <div class="cluster">
+          <span class="chip">Clean Architecture</span><span class="chip">Repository Pattern</span>
+          <span class="chip">MVVM / MVC</span><span class="chip">Performance Optimisation</span>
+          <span class="chip">Code Review</span><span class="chip">Agile</span>
+          <span class="chip">System Design</span><span class="chip">Technical Documentation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDENTIALS ================= -->
+<section class="section section--bordered" id="credentials" aria-labelledby="cred-h">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Credentials</p>
+      <h2 id="cred-h">Awards &amp; certificates</h2>
+      <p>Competition wins and academic honours, with the certificates behind them.</p>
+    </div>
+
+    <h3 class="visually-hidden">Awards</h3>
+    <div class="awards">
+
+      <article class="card award reveal">
+        <div class="award__top">
+          <span class="chip chip--award">Champion</span>
+          <h4>Regional Startup Pitching Competition</h4>
+        </div>
+        <p class="award__meta"><span>SOX iTech</span><span>July 2024</span></p>
+        <p>First place in the SOX iTech Regional Startup Pitching Competition.</p>
+      </article>
+
+      <article class="card award reveal" style="--reveal-delay:60ms">
+        <div class="award__top">
+          <span class="chip chip--award">Sole awardee</span>
+          <h4>Most Outstanding ITE</h4>
+        </div>
+        <p class="award__meta"><span>Philippine Society of IT Students</span><span>June 2024</span></p>
+        <p>The only recipient from the graduating batch, recognised for academics, leadership and
+           contributions to the IT field.</p>
+      </article>
+
+      <article class="card award reveal" style="--reveal-delay:120ms">
+        <div class="award__top">
+          <span class="chip chip--award">7th of 28</span>
+          <h4>National IT Skills Competition — C Language</h4>
+        </div>
+        <p class="award__meta"><span>Integrated Society of IT Enthusiasts (iSITE)</span><span>April 2024</span></p>
+        <p>Placed seventh nationally in the C programming category.</p>
+        <p class="award__actions">
+          <button class="btn btn--outline btn--sm" type="button" data-cert="national-it-skills-c-2024">
+            View certificate
+          </button>
+        </p>
+      </article>
+
+      <article class="card award reveal" style="--reveal-delay:180ms">
+        <div class="award__top">
+          <span class="chip chip--award">3rd place</span>
+          <h4>HACKFORGOV Capture-the-Flag</h4>
+        </div>
+        <p class="award__meta"><span>Department of ICT, Region XII</span><span>September 2023</span></p>
+        <p>Award of Excellence in the national cybersecurity capture-the-flag competition.</p>
+        <p class="award__actions">
+          <button class="btn btn--outline btn--sm" type="button" data-cert="hackforgov-3rd-place-2023">
+            View certificate
+          </button>
+        </p>
+      </article>
+
+      <article class="card award reveal" style="--reveal-delay:240ms">
+        <div class="award__top">
+          <span class="chip chip--award">Champion</span>
+          <h4>PSIT Regional Programming Competition</h4>
+        </div>
+        <p class="award__meta"><span>PSITE–PSITS Region XII</span><span>April 2023</span></p>
+        <p>First place at the 11th PSIT Regional Convention, ranking first of 23 universities
+           and colleges in the region.</p>
+        <p class="award__actions">
+          <button class="btn btn--outline btn--sm" type="button" data-cert="champion-psit-programming-2023">
+            View certificate
+          </button>
+        </p>
+      </article>
+
+      <article class="card award reveal" style="--reveal-delay:300ms">
+        <div class="award__top">
+          <span class="chip chip--award">Champion</span>
+          <h4>Hackathon Programming Competition</h4>
+        </div>
+        <p class="award__meta"><span>SEAIT — College of ICT</span><span>March 2023</span></p>
+        <p>First place in the school-level hackathon for the IT department.</p>
+      </article>
+
+    </div>
+
+    <h3 class="visually-hidden">Certificates</h3>
+    <div class="certs certs--headline reveal" style="margin-top:var(--sp-8)">
+        <button class="cert" type="button" data-cert="champion-psit-programming-2023" data-index="0">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/champion-psit-programming-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Computer Programming — Champion">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Computer Programming — Champion</span>
+            <span class="cert__sub">PSITE–PSITS Region XII · April 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="hackforgov-3rd-place-2023" data-index="1">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/hackforgov-3rd-place-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: HACKFORGOV Capture-the-Flag — 3rd Place">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">HACKFORGOV Capture-the-Flag — 3rd Place</span>
+            <span class="cert__sub">Department of ICT, Region XII · September 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="deans-list-academic-excellence-2023" data-index="2">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/deans-list-academic-excellence-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Academic Excellence — Dean’s List">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Academic Excellence — Dean’s List</span>
+            <span class="cert__sub">Southeast Asian Institute of Technology · AY 2022–2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="national-it-skills-c-2024" data-index="3">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/national-it-skills-c-2024.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: National IT Skills Competition — C Programming">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">National IT Skills Competition — C Programming</span>
+            <span class="cert__sub">Integrated Society of IT Enthusiasts (iSITE) · April 2024</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="yfc-provincial-eligibility-2023" data-index="4">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/yfc-provincial-eligibility-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Young Farmers Challenge — Provincial Level">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Young Farmers Challenge — Provincial Level</span>
+            <span class="cert__sub">Department of Agriculture · July 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="yfc-business-pitching-regional-2023" data-index="5">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/yfc-business-pitching-regional-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Young Farmers Challenge — Regional Business Pitching">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Young Farmers Challenge — Regional Business Pitching</span>
+            <span class="cert__sub">DA Regional Field Office XII · October 2023</span>
+          </div>
+        </button>
+    </div>
+
+    <details class="certs-more reveal">
+      <summary>
+        View all 18 certificates
+        <svg aria-hidden="true"><use href="#i-chevron-down"/></svg>
+      </summary>
+      <div class="certs-more__panel">
+        <div class="certs certs--rest">
+        <button class="cert" type="button" data-cert="hackforgov-participation-2023" data-index="6">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/hackforgov-participation-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: HACKFORGOV CTF 2023">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">HACKFORGOV CTF 2023</span>
+            <span class="cert__sub">Department of ICT · September 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="psits-12th-convention-innotech-2024" data-index="7">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/psits-12th-convention-innotech-2024.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: 12th PSITS Regional Convention — InnoTech Gala">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">12th PSITS Regional Convention — InnoTech Gala</span>
+            <span class="cert__sub">PSITE Region XII · May 2024</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="seminar-python-programming-2023" data-index="8">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/seminar-python-programming-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Python Programming Workshop">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Python Programming Workshop</span>
+            <span class="cert__sub">SEAIT — College of ICT · June 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="seminar-web-development-2023" data-index="9">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/seminar-web-development-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Web Development from Scratch">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Web Development from Scratch</span>
+            <span class="cert__sub">SEAIT — College of ICT · June 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="seminar-leadership-strategic-planning-2023" data-index="10">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/seminar-leadership-strategic-planning-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Leadership Skills &amp; Strategic Planning">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Leadership Skills &amp; Strategic Planning</span>
+            <span class="cert__sub">SEAIT Supreme Student Council · March 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="seminar-mobile-computing-2023" data-index="11">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/seminar-mobile-computing-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Hackathon 2023 — Mobile Computing">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Hackathon 2023 — Mobile Computing</span>
+            <span class="cert__sub">SEAIT — College of ICT · March 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="hackathon-2023-appreciation" data-index="12">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/hackathon-2023-appreciation.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Hackathon 2023 — Appreciation">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Hackathon 2023 — Appreciation</span>
+            <span class="cert__sub">SEAIT — College of ICT · March 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="seminar-ai-in-education-2023" data-index="13">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/seminar-ai-in-education-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Tech Talk — Revolutionizing Education with AI">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Tech Talk — Revolutionizing Education with AI</span>
+            <span class="cert__sub">PSITE–PSITS Region XII · April 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="seminar-student-to-ceo-2023" data-index="14">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/seminar-student-to-ceo-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Tech Talk — A Student’s Path to CEO">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Tech Talk — A Student’s Path to CEO</span>
+            <span class="cert__sub">PSITE–PSITS Region XII · April 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="seminar-mugna-insider-tech-2023" data-index="15">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/seminar-mugna-insider-tech-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Tech Talk — MUGNA: Insider Tech">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Tech Talk — MUGNA: Insider Tech</span>
+            <span class="cert__sub">PSITE–PSITS Region XII · April 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="seminar-hitchhikers-guide-tech-2023" data-index="16">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/seminar-hitchhikers-guide-tech-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: Tech Talk — Hitchhiker’s Guide to the Tech Industry">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">Tech Talk — Hitchhiker’s Guide to the Tech Industry</span>
+            <span class="cert__sub">PSITE–PSITS Region XII · April 2023</span>
+          </div>
+        </button>
+        <button class="cert" type="button" data-cert="psits-11th-convention-participation-2023" data-index="17">
+          <div class="cert__shot">
+            <img src="assets/certificates/thumbs/psits-11th-convention-participation-2023.webp" width="480" height="360"
+                 loading="lazy" decoding="async" alt="Certificate: 11th PSITS Regional Convention">
+          </div>
+          <div class="cert__body">
+            <span class="cert__title">11th PSITS Regional Convention</span>
+            <span class="cert__sub">PSITE–PSITS Region XII · April 2023</span>
+          </div>
+        </button>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section section--bordered contact" id="contact" aria-labelledby="contact-h">
+  <div class="container">
+    <div class="section__head contact__head reveal">
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-h">Open to Flutter and full-stack roles</h2>
+      <p>Freelance, contract or full-time — remote anywhere. I usually reply within a day.</p>
+    </div>
+
+    <div class="contact__channels">
+      <a class="card card--hover channel reveal" href="mailto:markstephenmolina8@gmail.com">
+        <span class="channel__icon"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+        <span class="channel__label">Email</span>
+        <span class="channel__value">markstephenmolina8@gmail.com</span>
+      </a>
+      <a class="card card--hover channel reveal" style="--reveal-delay:80ms" href="tel:+639763999551">
+        <span class="channel__icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+        <span class="channel__label">Phone</span>
+        <span class="channel__value">+63 976 399 9551</span>
+      </a>
+      <a class="card card--hover channel reveal" style="--reveal-delay:160ms"
+         href="https://github.com/Marrkkyyyyy" target="_blank" rel="noopener">
+        <span class="channel__icon"><svg aria-hidden="true"><use href="#i-github"/></svg></span>
+        <span class="channel__label">GitHub</span>
+        <span class="channel__value">@Marrkkyyyyy</span>
+      </a>
+    </div>
+
+    <a class="btn btn--primary reveal" href="assets/docs/Mark_Stephen_Molina_Resume.pdf"
+       target="_blank" rel="noopener">
+      <svg aria-hidden="true"><use href="#i-download"/></svg> Download résumé (PDF)
+    </a>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year">2026</span> Mark Stephen Molina · Built with plain HTML, CSS and JavaScript</p>
+    <nav aria-label="Elsewhere">
+      <a class="icon-btn" href="https://github.com/Marrkkyyyyy" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg aria-hidden="true"><use href="#i-github"/></svg></a>
+      <a class="icon-btn" href="mailto:markstephenmolina8@gmail.com" aria-label="Email">
+        <svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+      <a class="icon-btn" href="#top" aria-label="Back to top">
+        <svg aria-hidden="true" style="rotate:-90deg"><use href="#i-arrow-right"/></svg></a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ================= LIGHTBOX ================= -->
+<dialog class="lightbox" id="lightbox" aria-label="Certificate viewer">
+  <div class="lightbox__bar">
+    <span class="lightbox__hint mono">Scroll or click to zoom · ← → to browse · Esc to close</span>
+    <span class="lightbox__count mono" id="lbCount"></span>
+    <button class="icon-btn" id="lbClose" type="button" aria-label="Close viewer">
+      <svg aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+  </div>
+
+  <div class="lightbox__stage" id="lbStage">
+    <img class="lightbox__img" id="lbImg" alt="">
+  </div>
+
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="Previous certificate">
+    <svg aria-hidden="true"><use href="#i-chevron-left"/></svg>
+  </button>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Next certificate">
+    <svg aria-hidden="true"><use href="#i-chevron-right"/></svg>
+  </button>
+
+  <div class="lightbox__caption">
+    <strong id="lbTitle"></strong>
+    <span id="lbMeta"></span>
+  </div>
+</dialog>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

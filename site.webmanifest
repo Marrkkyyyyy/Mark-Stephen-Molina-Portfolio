@@ -1,0 +1,14 @@
+{
+  "name": "Mark Stephen Molina — Flutter & Full-Stack Developer",
+  "short_name": "M. Molina",
+  "description": "Portfolio of Mark Stephen Molina, Flutter developer.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

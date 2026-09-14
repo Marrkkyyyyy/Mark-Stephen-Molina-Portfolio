@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Container, section rhythm, reveal-on-scroll, generic grids.
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+  position: relative;
+  scroll-margin-top: calc(var(--header-h) + var(--sp-4));
+}
+.section + .section { padding-top: 0; }
+.section--bordered { border-top: 1px solid var(--border); padding-top: var(--section-y); }
+
+.section__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-8);
+  max-width: var(--prose);
+}
+.section__head h2 { margin: 0; }
+.section__head p {
+  color: var(--text-muted);
+  font-size: var(--fs-lead);
+  max-width: 60ch;
+}
+
+.prose { max-width: var(--prose); }
+
+/* --- reveal on scroll -------------------------------------------------- */
+
+/* Deliberately opt-in: .reveal elements are VISIBLE until the script that can
+   reveal them is running and has added .js-reveal to <html>. If main.js fails
+   to load, or is blocked, the page still reads — it just doesn't animate. */
+
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--dur-slow) var(--ease),
+              transform var(--dur-slow) var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js-reveal .reveal.is-visible,
+.js-reveal .reveal.is-static { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transform: none; }
+}
+
+/* --- grids ------------------------------------------------------------- */
+
+.grid { display: grid; gap: var(--sp-5); }
+
+.grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+.grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+.grid--4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.stack > * + * { margin-top: var(--flow, var(--sp-4)); }
