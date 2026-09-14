@@ -49,21 +49,24 @@ export async function initGalleries() {
     const panels = declaredPanels.get(el);
     const ready = [...el.querySelectorAll('[data-gallery]')];
 
-    // A tabbed case study only shows its media column when EVERY tab has
+    // A diagram is media in its own right — it is authored into the page, not
+    // loaded, so it is always there. A case study that has one keeps its two
+    // column layout whether or not any screenshots turned up.
+    const hasDiagram = !!el.querySelector('[data-diagram]');
+
+    // A tabbed case study only shows its galleries when EVERY tab has
     // screenshots. Otherwise switching to an unillustrated tab would leave a
-    // hole in the layout — worse than showing no gallery at all.
-    const complete = panels.size
+    // hole in the column — worse than showing no gallery at all.
+    const galleriesComplete = panels.size
       ? panels.size === ready.filter((g) => panels.has(g.dataset.panel)).length
       : ready.length > 0;
 
-    if (complete) {
-      el.classList.remove('is-textonly');
-    } else {
-      ready.forEach((g) => g.remove());
-      el.classList.add('is-textonly');
-    }
+    if (!galleriesComplete) ready.forEach((g) => g.remove());
+
+    if (galleriesComplete || hasDiagram) el.classList.remove('is-textonly');
+    else el.classList.add('is-textonly');
 
     const media = el.querySelector('.case__media');
-    if (media && !media.querySelector('[data-gallery]')) media.remove();
+    if (media && !media.querySelector('[data-gallery], [data-diagram]')) media.remove();
   }
 }

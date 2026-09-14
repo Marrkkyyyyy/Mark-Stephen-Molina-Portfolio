@@ -21,6 +21,31 @@
   z-index: -1;
 }
 
+/* A faint grid behind the hero, fading out downward. Pure depth — it should
+   register as texture, not as a pattern you actively notice. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 68px 68px;
+  opacity: 0.35;
+  mask-image: radial-gradient(120% 78% at 50% 0%, #000 0%, transparent 72%);
+  -webkit-mask-image: radial-gradient(120% 78% at 50% 0%, #000 0%, transparent 72%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero::before { animation: hero-drift 22s ease-in-out infinite alternate; }
+}
+@keyframes hero-drift {
+  from { transform: translate3d(-3%, -1%, 0) scale(1); }
+  to   { transform: translate3d(3%, 2%, 0) scale(1.06); }
+}
+
 .hero__grid {
   display: grid;
   gap: var(--sp-8);

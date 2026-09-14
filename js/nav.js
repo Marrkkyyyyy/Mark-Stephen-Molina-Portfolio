@@ -43,6 +43,22 @@ export function initNav() {
 
   if (!sections.length || !('IntersectionObserver' in window)) return;
 
+  const marker = document.getElementById('navMarker');
+
+  // Slide the marker under whichever desktop nav link is current. Measured
+  // against the list so it survives the links reflowing at different widths.
+  const moveMarker = (link) => {
+    if (!marker) return;
+    const list = marker.parentElement;
+    if (!link || !list.contains(link) || !link.offsetParent) {
+      marker.style.opacity = '0';
+      return;
+    }
+    marker.style.opacity = '1';
+    marker.style.width = `${link.offsetWidth}px`;
+    marker.style.transform = `translateX(${link.parentElement.offsetLeft}px)`;
+  };
+
   const visible = new Set();
   const mark = () => {
     // The topmost section currently on screen wins.
@@ -51,12 +67,22 @@ export function initNav() {
       if (!best || el.offsetTop < best.offsetTop) best = el;
     }
     const id = best?.id;
+    let current = null;
     for (const a of links) {
       const on = id && a.getAttribute('href') === `#${id}`;
-      if (on) a.setAttribute('aria-current', 'true');
-      else a.removeAttribute('aria-current');
+      if (on) {
+        a.setAttribute('aria-current', 'true');
+        if (a.classList.contains('nav__link')) current = a;
+      } else {
+        a.removeAttribute('aria-current');
+      }
     }
+    moveMarker(current);
   };
+
+  addEventListener('resize', () => {
+    moveMarker(document.querySelector('.nav__link[aria-current="true"]'));
+  });
 
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {

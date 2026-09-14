@@ -53,7 +53,24 @@
 .brand__name { font-size: 0.9375rem; }
 
 .nav { display: none; }
-.nav__list { display: flex; align-items: center; gap: var(--sp-1); }
+.nav__list { position: relative; display: flex; align-items: center; gap: var(--sp-1); }
+
+/* Sliding indicator under the current section's link. Positioned by nav.js
+   from the same scroll-spy that sets aria-current. */
+.nav__marker {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  border-radius: var(--r-full);
+  background: var(--accent);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform var(--dur) var(--ease),
+              width var(--dur) var(--ease),
+              opacity var(--dur-fast) var(--ease);
+}
 .nav__link {
   display: block;
   padding: var(--sp-2) var(--sp-3);
@@ -404,3 +421,141 @@
   color: var(--text-subtle);
 }
 @media (max-width: 640px) { .lightbox__hint { display: none; } }
+
+/* --- architecture diagram ---------------------------------------------- */
+
+/* The SVG is authored at a 360-unit viewBox so that at phone width one SVG
+   unit is roughly one CSS pixel — which is what keeps the 11px labels legible
+   there. On desktop the whole thing scales up. Every colour resolves to a
+   token, so the diagram follows the theme toggle like the rest of the page. */
+
+.diagram {
+  display: grid;
+  gap: var(--sp-3);
+  margin: 0;
+}
+.diagram svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.dg-band {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  fill: var(--text-subtle);
+}
+.dg-title {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  fill: var(--text);
+}
+.dg-sub {
+  font-family: var(--font-sans);
+  font-size: 12.2px;
+  fill: var(--text-muted);
+}
+.dg-edge-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  fill: var(--text-subtle);
+}
+
+.dg-app rect {
+  fill: var(--accent-wash);
+  stroke: color-mix(in srgb, var(--accent) 40%, transparent);
+  stroke-width: 1;
+}
+.dg-app .dg-title { fill: var(--accent); }
+
+.dg-plane {
+  fill: color-mix(in srgb, var(--surface) 55%, transparent);
+  stroke: var(--border);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+.dg-node rect { fill: var(--surface); stroke: var(--border); stroke-width: 1; }
+.dg-node .dg-tick { stroke: none; fill: var(--accent); }
+
+.dg-node--pos .dg-tick { fill: var(--accent); }
+.dg-node--pay .dg-tick { fill: var(--violet); }
+.dg-node--map .dg-tick { fill: var(--green); }
+.dg-node--ml  .dg-tick { fill: var(--gold); }
+
+.dg-edge {
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+}
+.dg-arrowhead { fill: var(--border-strong); }
+
+/* --- diagram entrance --------------------------------------------------
+   Keyed off the .is-visible class that reveal.js already puts on the parent
+   case study, so this needs no JavaScript of its own. The arrows draw
+   themselves, the nodes stagger in, and the whole thing is inert under
+   prefers-reduced-motion. */
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .reveal .diagram .dg-app,
+  .js-reveal .reveal .diagram .dg-node,
+  .js-reveal .reveal .diagram .dg-plane,
+  .js-reveal .reveal .diagram .dg-band,
+  .js-reveal .reveal .diagram .dg-edge-label { opacity: 0; }
+
+  .js-reveal .reveal .diagram .dg-edge {
+    stroke-dasharray: 32;
+    stroke-dashoffset: 32;
+  }
+
+  /* opacity/dashoffset are set here as well as in the keyframes on purpose:
+     the final state must not depend on the animation actually executing. If
+     animations are suppressed for any reason, the diagram is simply visible. */
+  .reveal.is-visible .diagram .dg-app,
+  .reveal.is-visible .diagram .dg-node,
+  .reveal.is-visible .diagram .dg-plane,
+  .reveal.is-visible .diagram .dg-band,
+  .reveal.is-visible .diagram .dg-edge-label {
+    opacity: 1;
+    animation: dg-in 520ms var(--ease) both;
+  }
+  .reveal.is-visible .diagram .dg-edge {
+    opacity: 1;
+    stroke-dashoffset: 0;
+    animation: dg-draw 460ms var(--ease) both;
+  }
+
+  /* Top to bottom, following how the system actually flows. */
+  .reveal.is-visible .diagram .dg-band                { animation-delay: 60ms; }
+  .reveal.is-visible .diagram .dg-app:nth-of-type(1)  { animation-delay: 100ms; }
+  .reveal.is-visible .diagram .dg-app:nth-of-type(2)  { animation-delay: 160ms; }
+  .reveal.is-visible .diagram .dg-app:nth-of-type(3)  { animation-delay: 220ms; }
+  .reveal.is-visible .diagram .dg-edge               { animation-delay: 300ms; }
+  .reveal.is-visible .diagram .dg-edge-label         { animation-delay: 420ms; }
+  .reveal.is-visible .diagram .dg-plane              { animation-delay: 380ms; }
+  .reveal.is-visible .diagram .dg-node               { animation-delay: 440ms; }
+  .reveal.is-visible .diagram .dg-node--pos          { animation-delay: 620ms; }
+  .reveal.is-visible .diagram .dg-node--pay          { animation-delay: 680ms; }
+  .reveal.is-visible .diagram .dg-node--map          { animation-delay: 740ms; }
+  .reveal.is-visible .diagram .dg-node--ml           { animation-delay: 800ms; }
+}
+
+@keyframes dg-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes dg-draw {
+  from { stroke-dashoffset: 32; opacity: 0; }
+  to   { stroke-dashoffset: 0;  opacity: 1; }
+}
+
+/* Desktop: the diagram column tracks alongside the scrolling case-study text. */
+@media (min-width: 1024px) {
+  .case__media:has(.diagram) {
+    position: sticky;
+    top: calc(var(--header-h) + var(--sp-5));
+  }
+}
