@@ -411,7 +411,16 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
   margin-bottom: var(--sp-7);
 }
-.channel { display: grid; gap: var(--sp-2); justify-items: center; text-align: center; padding: var(--sp-6) var(--sp-4); }
+.channel {
+  display: grid;
+  gap: var(--sp-2);
+  justify-items: center;
+  text-align: center;
+  padding: var(--sp-6) var(--sp-4);
+  text-decoration: none;          /* the whole card is the link, not the words */
+}
+.channel:hover { color: var(--text); }
+.channel:hover .channel__value { color: var(--accent); }
 .channel__icon {
   display: grid; place-items: center;
   width: 40px; height: 40px;
@@ -426,7 +435,6 @@
 .site-footer {
   border-top: 1px solid var(--border);
   padding-block: var(--sp-6);
-  margin-top: var(--section-y);
 }
 .site-footer .container {
   display: flex;
