@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <title>Mark Stephen Molina — Flutter &amp; Full-Stack Developer</title>
-<meta name="description" content="Flutter developer building production mobile apps and the serverless backends behind them. Full-Stack Developer at HeyJag (Florida, USA) — shipped a three-app marketplace platform with 15+ Cloud Functions and 7+ POS integrations. BS Information Technology, Cum Laude 2024.">
+<meta name="description" content="Flutter developer building production mobile apps and the serverless backends behind them. Full-Stack Developer at HeyJag (Florida, USA) — shipped a four-app marketplace platform with 105 Cloud Functions, live in the App Store and Google Play. BS Information Technology, Cum Laude 2024.">
 <meta name="author" content="Mark Stephen Molina">
 <meta name="theme-color" content="#0b0f14">
 <link rel="canonical" href="https://marrkkyyyyy.github.io/">
@@ -63,7 +63,7 @@
     "name": "Southeast Asian Institute of Technology, Inc.",
     "address": "South Cotabato, Philippines"
   },
-  "knowsAbout": ["Flutter","Dart","Firebase","Cloud Functions","Node.js","Stripe Connect",
+  "knowsAbout": ["Flutter","Dart","Firebase","Cloud Functions","Node.js","Stripe",
     "Google Maps Platform","REST APIs","Serverless Architecture","Cross-platform Development"]
 }
 </script>
@@ -173,6 +173,14 @@
             <svg aria-hidden="true"><use href="#i-mail"/></svg> Email me
           </a>
         </div>
+
+        <p class="hero__live">
+          <span class="hero__live-label">Live</span>
+          <a href="https://apps.apple.com/us/app/hey-jag/id6739027383" target="_blank" rel="noopener">Hey JAG</a>
+          <a href="https://apps.apple.com/us/app/jag-driver/id6739028664" target="_blank" rel="noopener">JAG Driver</a>
+          <a href="https://apps.apple.com/us/app/jag-merchant/id6739029277" target="_blank" rel="noopener">JAG Merchant</a>
+          <a href="https://apps.apple.com/us/app/jag-provider/id6762231255" target="_blank" rel="noopener">JAG Provider</a>
+        </p>
       </div>
 
       <figure class="hero__portrait">
@@ -204,7 +212,7 @@
         </li>
         <li>
           <span class="stack__label">Payments &amp; APIs</span>
-          <span class="stack__tech">Stripe Connect · POS systems · Google Maps · ML Kit</span>
+          <span class="stack__tech">Stripe · POS systems · Google Maps · ML Kit · Cloud Tasks</span>
         </li>
       </ul>
       <div class="stack__brace" aria-hidden="true"></div>
@@ -269,13 +277,13 @@
         </div>
         <p class="role__where">Florida, USA · Remote</p>
         <ul class="role__points">
-          <li>Architected a <strong>three-app ecosystem</strong> — customer, merchant, driver</li>
-          <li>Built <strong>15+ Cloud Functions</strong> for order assignment, sync and payouts</li>
-          <li>Integrated <strong>7+ POS systems</strong> and a Stripe Connect marketplace</li>
+          <li>Rebuilt a bought marketplace platform into <strong>four live apps</strong> — customer, driver, merchant, provider</li>
+          <li>Wrote the merchant app, the provider app and all <strong>105 Cloud Functions</strong> from scratch</li>
+          <li>Built POS integrations, Stripe payment holds and a weekly vendor payout ledger</li>
         </ul>
         <div class="role__tech cluster">
           <span class="chip">Flutter</span><span class="chip">Node.js</span>
-          <span class="chip">Firebase Functions</span><span class="chip">Stripe Connect</span>
+          <span class="chip">Firebase Functions</span><span class="chip">Stripe</span>
           <span class="chip">Google Maps</span><span class="chip">ML Kit</span>
           <span class="chip">POS APIs</span><span class="chip">Background Services</span>
         </div>
@@ -371,7 +379,8 @@
               <h3>HeyJag</h3>
             </div>
             <p class="case__tagline">
-              A six-service marketplace on three apps and one serverless backend.
+              A six-vertical marketplace on four live apps — customer, driver, merchant and
+              service provider — over one serverless backend.
             </p>
             <p class="case__meta">
               <span><b>Role</b> Lead developer</span>
@@ -384,20 +393,21 @@
             <button class="tab" role="tab" id="tab-customer" aria-controls="panel-customer" aria-selected="true">Customer</button>
             <button class="tab" role="tab" id="tab-merchant" aria-controls="panel-merchant" aria-selected="false" tabindex="-1">Merchant</button>
             <button class="tab" role="tab" id="tab-driver"   aria-controls="panel-driver"   aria-selected="false" tabindex="-1">Driver</button>
+            <button class="tab" role="tab" id="tab-provider" aria-controls="panel-provider" aria-selected="false" tabindex="-1">Provider</button>
           </div>
 
           <div role="tabpanel" id="panel-customer" aria-labelledby="tab-customer" tabindex="0">
             <ul class="case__points">
               <li>Six services in one <strong>super-app</strong></li>
-              <li><strong>Real-time order pipeline</strong> across all three apps</li>
+              <li><strong>Real-time order pipeline</strong> across all four apps</li>
               <li>Live driver tracking and route optimisation</li>
             </ul>
           </div>
           <div role="tabpanel" id="panel-merchant" aria-labelledby="tab-merchant" tabindex="0" hidden>
             <ul class="case__points">
-              <li><strong>7+ POS integrations</strong>, synced every 30 minutes</li>
+              <li><strong>Clover POS</strong> catalogue sync, every 30 minutes</li>
               <li>Revenue analytics and <strong>multi-location management</strong></li>
-              <li>Weekly automated payouts via Stripe Connect</li>
+              <li>Stripe payment holds and a weekly payout ledger</li>
             </ul>
           </div>
           <div role="tabpanel" id="panel-driver" aria-labelledby="tab-driver" tabindex="0" hidden>
@@ -408,9 +418,17 @@
             </ul>
           </div>
 
+          <div role="tabpanel" id="panel-provider" aria-labelledby="tab-provider" tabindex="0" hidden>
+            <ul class="case__points">
+              <li><strong>Availability engine</strong> — weekly hours, time off, per-service lead times</li>
+              <li>Multi-step onboarding that <strong>resumes where the provider left off</strong></li>
+              <li><strong>Invite-code teams</strong> — providers assign bookings to their workers</li>
+            </ul>
+          </div>
+
           <div class="cluster" style="margin-top:var(--sp-6)">
             <span class="chip">Flutter</span><span class="chip">Firebase</span>
-            <span class="chip">Node.js</span><span class="chip">Stripe Connect</span>
+            <span class="chip">Node.js</span><span class="chip">Stripe</span>
             <span class="chip">Google Maps</span><span class="chip">ML Kit</span>
             <span class="chip">POS APIs</span>
           </div>
@@ -439,6 +457,17 @@
             </div>
             <p class="gallery__caption">Merchant dashboard</p>
           </div>
+          <div class="gallery" data-gallery="heyjag_provider" data-panel="panel-provider" hidden>
+            <div class="gallery__rail">
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/heyjag_provider/01_bookings.webp" alt="JAG Provider app — bookings"></div></figure>
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/heyjag_provider/02_availability.webp" alt="JAG Provider app — availability"></div></figure>
+              <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
+                <img data-src="assets/screenshots/heyjag_provider/03_team.webp" alt="JAG Provider app — team"></div></figure>
+            </div>
+            <p class="gallery__caption">Service provider</p>
+          </div>
           <div class="gallery" data-gallery="heyjag_driver" data-panel="panel-driver" hidden>
             <div class="gallery__rail">
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
@@ -458,8 +487,8 @@
               <desc id="dgDesc">Three Flutter apps — Customer, Merchant and Driver — share one
                 real-time Firestore data plane. Over fifteen Cloud Functions handle order
                 assignment with retry logic, scheduled synchronisation and payouts, and connect
-                out to Clover, Square and Toast point-of-sale systems on a thirty minute cycle,
-                Stripe Connect for commission splits and weekly vendor payouts, Google Maps for
+                out to Clover and Toast point-of-sale systems on a thirty minute cycle,
+                Stripe for payment holds and a weekly vendor payout ledger, Google Maps for
                 live driver tracking, and ML Kit for face matching during driver verification.</desc>
 
               <defs>
@@ -470,25 +499,30 @@
               </defs>
 
               <!-- ── clients ─────────────────────────────────────────── -->
-              <text class="dg-band" x="0" y="9">3 Flutter apps · one codebase</text>
+              <text class="dg-band" x="0" y="9">4 Flutter apps · one backend</text>
 
               <g class="dg-app">
-                <rect x="0"   y="18" width="112" height="54" rx="9"/>
-                <text class="dg-title" x="56"  y="50" text-anchor="middle">Customer</text>
+                <rect x="0"   y="18" width="81" height="54" rx="9"/>
+                <text class="dg-title" x="40.5"  y="50" text-anchor="middle">Customer</text>
               </g>
               <g class="dg-app">
-                <rect x="124" y="18" width="112" height="54" rx="9"/>
-                <text class="dg-title" x="180" y="50" text-anchor="middle">Merchant</text>
+                <rect x="93"  y="18" width="81" height="54" rx="9"/>
+                <text class="dg-title" x="133.5" y="50" text-anchor="middle">Merchant</text>
               </g>
               <g class="dg-app">
-                <rect x="248" y="18" width="112" height="54" rx="9"/>
-                <text class="dg-title" x="304" y="50" text-anchor="middle">Driver</text>
+                <rect x="186" y="18" width="81" height="54" rx="9"/>
+                <text class="dg-title" x="226.5" y="50" text-anchor="middle">Driver</text>
+              </g>
+              <g class="dg-app">
+                <rect x="279" y="18" width="81" height="54" rx="9"/>
+                <text class="dg-title" x="319.5" y="50" text-anchor="middle">Provider</text>
               </g>
 
-              <path class="dg-edge" d="M56 74 V102"  marker-end="url(#dgArrow)"/>
-              <path class="dg-edge" d="M180 74 V102" marker-end="url(#dgArrow)"/>
-              <path class="dg-edge" d="M304 74 V102" marker-end="url(#dgArrow)"/>
-              <text class="dg-edge-label" x="118" y="93" text-anchor="middle">real-time</text>
+              <path class="dg-edge" d="M40.5 74 V102"  marker-end="url(#dgArrow)"/>
+              <path class="dg-edge" d="M133.5 74 V102" marker-end="url(#dgArrow)"/>
+              <path class="dg-edge" d="M226.5 74 V102" marker-end="url(#dgArrow)"/>
+              <path class="dg-edge" d="M319.5 74 V102" marker-end="url(#dgArrow)"/>
+              <text class="dg-edge-label" x="87" y="93" text-anchor="middle">real-time</text>
 
               <!-- ── backend ─────────────────────────────────────────── -->
               <text class="dg-band" x="0" y="117">Serverless backend</text>
@@ -498,11 +532,11 @@
               <g class="dg-node">
                 <rect x="10" y="136" width="340" height="40" rx="7"/>
                 <text class="dg-title" x="22" y="152">Firestore</text>
-                <text class="dg-sub"   x="22" y="167">live order state, shared by all three apps</text>
+                <text class="dg-sub"   x="22" y="167">live order state, shared by all four apps</text>
               </g>
               <g class="dg-node">
                 <rect x="10" y="182" width="340" height="40" rx="7"/>
-                <text class="dg-title" x="22" y="198">Cloud Functions ×15+</text>
+                <text class="dg-title" x="22" y="198">Cloud Functions ×105</text>
                 <text class="dg-sub"   x="22" y="213">assignment · retry · scheduled sync · payouts</text>
               </g>
 
@@ -514,14 +548,14 @@
               <g class="dg-node dg-node--pos">
                 <rect x="0" y="278" width="360" height="40" rx="8"/>
                 <rect class="dg-tick" x="0" y="278" width="3" height="40"/>
-                <text class="dg-title" x="16" y="295">Clover · Square · Toast</text>
+                <text class="dg-title" x="16" y="295">Clover · Toast · in-house POS</text>
                 <text class="dg-sub"   x="16" y="310">menu and inventory pulled every 30 minutes</text>
               </g>
               <g class="dg-node dg-node--pay">
                 <rect x="0" y="326" width="360" height="40" rx="8"/>
                 <rect class="dg-tick" x="0" y="326" width="3" height="40"/>
-                <text class="dg-title" x="16" y="343">Stripe Connect</text>
-                <text class="dg-sub"   x="16" y="358">commission split per order, weekly payouts</text>
+                <text class="dg-title" x="16" y="343">Stripe</text>
+                <text class="dg-sub"   x="16" y="358">auth holds, webhooks, weekly payout ledger</text>
               </g>
               <g class="dg-node dg-node--map">
                 <rect x="0" y="374" width="360" height="40" rx="8"/>
@@ -536,7 +570,7 @@
                 <text class="dg-sub"   x="16" y="454">face match during driver verification</text>
               </g>
             </svg>
-            <figcaption class="gallery__caption">How the three apps fit together</figcaption>
+            <figcaption class="gallery__caption">How the four apps fit together</figcaption>
           </figure>
         </div>
       </div>
@@ -705,7 +739,7 @@
       <span class="chip chip--accent chip--lg">Node.js</span>
       <span class="chip chip--accent chip--lg">Serverless Architecture</span>
       <span class="chip chip--accent chip--lg">Real-time Systems</span>
-      <span class="chip chip--accent chip--lg">Stripe Connect</span>
+      <span class="chip chip--accent chip--lg">Stripe</span>
       <span class="chip chip--accent chip--lg">Google Maps</span>
       <span class="chip chip--accent chip--lg">REST APIs</span>
       <span class="chip chip--accent chip--lg">Platform Channels</span>
@@ -727,11 +761,15 @@
       </div>
       <div>
         <dt>Integrations</dt>
-        <dd>Stripe Connect · Google Maps · Clover · Square · Toast · ML Kit · Webhooks</dd>
+        <dd>Stripe · Google Maps · Clover · Toast · ML Kit · Cloud Tasks · Webhooks</dd>
       </div>
       <div>
         <dt>Languages</dt>
-        <dd>Dart · JavaScript · Python · Swift · C++ · C · PHP</dd>
+        <dd>Dart · JavaScript · PHP · Python · Swift · C++ · C</dd>
+      </div>
+      <div>
+        <dt>Web</dt>
+        <dd>Laravel 10 · Blade · MySQL · REST APIs · Role-based access control</dd>
       </div>
       <div>
         <dt>Practice</dt>

@@ -612,3 +612,39 @@
   background: var(--border);
   margin-block: var(--sp-1) var(--sp-2);
 }
+
+/* --- live app links ------------------------------------------------------ */
+
+/* The single most persuasive thing on the page: four shipped apps a reader can
+   open in the store right now. Kept quiet typographically so it reads as
+   evidence rather than as advertising. */
+.hero__live {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-2) var(--sp-4);
+  margin-top: var(--sp-6);
+  font-size: var(--fs-sm);
+}
+.hero__live-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.hero__live-label::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: var(--sp-2);
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 20%, transparent);
+}
+.hero__live a {
+  color: var(--text-muted);
+  text-decoration-color: color-mix(in srgb, var(--text-subtle) 50%, transparent);
+}
+.hero__live a:hover { color: var(--accent); }
