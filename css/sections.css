@@ -120,11 +120,91 @@
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 22%, transparent);
 }
 
-/* The hero proof row deliberately sets NO numeral at display size. Big-number
-   treatments amplify whatever is in them, and these counts (3 apps, 7 POS) are
-   small enough that the amplification worked against us. Names and scope carry
-   it instead: "Clover · Square · Toast" persuades harder than "7+". */
-.proof { margin-top: var(--sp-8); }
+/* --- the stack ----------------------------------------------------------
+   Draws the headline's claim rather than restating it: four layers, one
+   developer owning all of them. Built in HTML rather than SVG so the text
+   stays selectable and needs no viewBox maths to survive a phone. Also sets
+   no numeral at display size — see the note in the git history about why big
+   numbers were hurting this hero. */
+
+.stack {
+  margin: var(--sp-8) 0 0;
+  display: grid;
+  gap: var(--sp-4);
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.stack__layers {
+  display: grid;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.stack__layers li {
+  display: grid;
+  gap: var(--sp-1);
+  padding: var(--sp-4) var(--sp-5);
+  border-top: 1px solid var(--border);
+}
+.stack__layers li:first-child { border-top: 0; }
+
+/* Small steps down the surface ramp so the block reads as depth rather than as
+   four differently coloured boxes. */
+.stack__layers li:nth-child(1) { background: var(--surface); }
+.stack__layers li:nth-child(2) { background: color-mix(in srgb, var(--surface) 60%, var(--surface-2)); }
+.stack__layers li:nth-child(3) { background: color-mix(in srgb, var(--surface-2) 70%, var(--surface-3)); }
+.stack__layers li:nth-child(4) { background: var(--surface-3); }
+
+.stack__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.stack__tech {
+  font-size: var(--fs-sm);
+  color: var(--text);
+  text-wrap: pretty;
+}
+
+/* Caption sits below on a phone; the brace only appears when there is room. */
+.stack__brace { display: none; }
+.stack__note {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-snug);
+  color: var(--text-muted);
+  text-align: left;
+}
+.stack__note br { display: none; }
+
+@media (min-width: 900px) {
+  .stack {
+    /* No column gap: the brace must touch the stack edge to read as a brace
+       rather than as a stray rectangle beside it. The caption pads itself. */
+    grid-template-columns: minmax(0, 680px) 18px auto;
+    gap: 0;
+  }
+  .stack__layers li {
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    gap: var(--sp-5);
+    align-items: baseline;
+    padding: var(--sp-4) var(--sp-6);
+  }
+  /* The brace: a bordered box with its left side removed. The caption beside
+     it stays horizontal — rotated text would be harder to read, not smarter. */
+  .stack__brace {
+    display: block;
+    align-self: stretch;
+    border: 1px solid var(--border-strong);
+    border-left: 0;
+    border-radius: 0 var(--r-md) var(--r-md) 0;
+  }
+  .stack__note { padding-left: var(--sp-4); }
+  .stack__note br { display: inline; }
+}
 
 @media (min-width: 900px) {
   .hero__grid { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: var(--sp-10); }
