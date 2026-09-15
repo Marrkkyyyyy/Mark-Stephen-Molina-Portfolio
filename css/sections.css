@@ -356,15 +356,6 @@
 }
 .case__meta b { color: var(--text-muted); font-weight: 500; }
 
-.case__metrics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
-  gap: var(--sp-5) var(--sp-4);
-  margin-block: var(--sp-6);
-  padding-block: var(--sp-5);
-  border-block: 1px solid var(--border);
-}
-
 .case__points { display: grid; gap: var(--sp-3); margin-top: var(--sp-5); }
 .case__points li {
   position: relative;
@@ -406,7 +397,6 @@
 /* When JS finds no screenshots it sets this, and the case study becomes a
    deliberate full-width editorial layout rather than an empty column. */
 .case.is-textonly .case__media { display: none; }
-.case.is-textonly .case__metrics { grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); }
 
 @media (min-width: 1024px) {
   .case__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: var(--sp-9); }
