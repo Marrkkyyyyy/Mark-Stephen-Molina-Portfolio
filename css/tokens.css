@@ -37,9 +37,9 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --fs-display: clamp(2.375rem, 1.6rem + 3.2vw, 3.875rem);
-  --fs-h2:      clamp(1.875rem, 1.4rem + 2.2vw, 3rem);
-  --fs-h3:      clamp(1.3125rem, 1.15rem + 0.8vw, 1.75rem);
+  --fs-display: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+  --fs-h2:      clamp(2.25rem, 1.4rem + 4.2vw, 4.5rem);
+  --fs-h3:      clamp(1.5rem, 1.15rem + 1.6vw, 2.25rem);
   --fs-h4:      clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
   --fs-lead:    clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem);
   --fs-body:    1rem;
@@ -54,7 +54,7 @@
   --lh-body:  1.65;
   --lh-loose: 1.75;
 
-  --tracking-tight: -0.02em;
+  --tracking-tight: -0.03em;
   --tracking-wide:   0.08em;
 
   /* --- space (8pt) ---------------------------------------------------- */
@@ -62,7 +62,7 @@
   --sp-5: 1.5rem;   --sp-6: 2rem;     --sp-7: 2.5rem;   --sp-8: 3rem;
   --sp-9: 4rem;     --sp-10: 5rem;    --sp-11: 6rem;    --sp-12: 8rem;
 
-  --section-y: clamp(4rem, 2rem + 8vw, 7.5rem);
+  --section-y: clamp(5rem, 3rem + 9vw, 9rem);
   --gutter:    clamp(1.25rem, 0.5rem + 3vw, 4rem);
   --container: 1200px;
   --prose:     68ch;

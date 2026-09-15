@@ -51,7 +51,7 @@
   gap: var(--sp-8);
   align-items: center;
 }
-.hero__title { margin-block: var(--sp-4) var(--sp-5); max-width: 16ch; }
+.hero__title { margin-block: var(--sp-4) var(--sp-5); max-width: 13ch; }
 .hero__title em {
   font-style: normal;
   background: linear-gradient(100deg, var(--accent-strong), var(--accent));
@@ -356,8 +356,6 @@
 /* --- skills ------------------------------------------------------------ */
 
 .skills__top { margin-bottom: var(--sp-8); }
-.skills__group h4 { margin-bottom: var(--sp-4); display: flex; align-items: center; gap: var(--sp-3); }
-.skills__group h4 svg { width: 16px; height: 16px; color: var(--accent); flex: none; }
 
 /* --- credentials ------------------------------------------------------- */
 
@@ -470,3 +468,73 @@
 }
 .site-footer p { font-size: var(--fs-xs); color: var(--text-subtle); }
 .site-footer nav { display: flex; gap: var(--sp-1); }
+
+/* --- skills as a spec sheet --------------------------------------------- */
+
+.skills__list { display: grid; }
+.skills__list > div {
+  display: grid;
+  gap: var(--sp-2);
+  padding-block: var(--sp-5);
+  border-top: 1px solid var(--border);
+}
+.skills__list > div:last-child { border-bottom: 1px solid var(--border); }
+.skills__list dt {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.skills__list dd {
+  margin: 0;
+  font-size: var(--fs-lead);
+  color: var(--text);
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .skills__list > div {
+    grid-template-columns: 13rem minmax(0, 1fr);
+    gap: var(--sp-7);
+    align-items: baseline;
+    padding-block: var(--sp-6);
+  }
+}
+
+/* --- case study index numbers ------------------------------------------- */
+
+.case__index {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-subtle);
+  margin-bottom: var(--sp-2);
+}
+.case__index b { font-weight: 500; color: var(--accent); }
+
+/* --- earlier projects: caps name + corner arrow -------------------------- */
+
+.mini h4 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+.mini h4 a { text-decoration: none; }
+.mini__arrow {
+  color: var(--text-muted);
+  transition: color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.mini__arrow svg { width: 17px; height: 17px; rotate: -45deg; }
+.card--hover:hover .mini__arrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+.mini__rule {
+  height: 1px;
+  background: var(--border);
+  margin-block: var(--sp-1) var(--sp-2);
+}

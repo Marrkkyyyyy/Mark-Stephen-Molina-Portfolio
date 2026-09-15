@@ -20,15 +20,39 @@
 .section__head {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-3);
-  margin-bottom: var(--sp-8);
-  max-width: var(--prose);
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-9);
 }
-.section__head h2 { margin: 0; }
+/* Headings break into deliberate two- and three-line stacks instead of running
+   the full 1200px container — the whole point of the large display sizes. */
+.section__head h2 { margin: 0; max-width: 17ch; }
 .section__head p {
   color: var(--text-muted);
   font-size: var(--fs-lead);
-  max-width: 60ch;
+  max-width: 48ch;
+}
+
+/* Numbered section rule: 01 / WORK ───────────────────────────── */
+.section__num {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.section__num b {
+  font-weight: 500;
+  color: var(--accent);
+}
+.section__num::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
 }
 
 .prose { max-width: var(--prose); }
