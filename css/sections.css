@@ -696,8 +696,11 @@
   color: var(--text-subtle);
 }
 
+/* 2x2 rather than 4-across: four photos in one row would be ~250px each, and
+   these are photographs, not thumbnails. Reads left to right, top to bottom,
+   which keeps the chronology intact. */
 @media (min-width: 768px) {
-  .setup { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+  .setup { grid-template-columns: repeat(2, 1fr); gap: var(--sp-6) var(--sp-5); }
 }
 
 /* The desk photos open in the shared image viewer. A real <button> rather than

@@ -130,9 +130,12 @@ desk() {   # src slug
     "$(( $(stat -f%z "$DESK/full/$slug.webp") / 1024 ))"
 }
 DESK_SRC="$ROOT/assets/desktop"
+# Chronological. Slugs carry the order, so adding one in the middle renumbers
+# the ones after it — the files are generated, so that is cheap.
 desk "$DESK_SRC/56d284bafca53ae68eea50c7396c4b09.JPEG" "desk-01-first"
-desk "$DESK_SRC/IMG_1250.heic"                          "desk-02-build"
-desk "$DESK_SRC/IMG_3346.HEIC"                          "desk-03-now"
+desk "$DESK_SRC/IMG_0747.HEIC"                          "desk-02-ultrawide"
+desk "$DESK_SRC/IMG_1250.heic"                          "desk-03-build"
+desk "$DESK_SRC/IMG_3346.HEIC"                          "desk-04-now"
 
 echo "==> resume"
 cp "$SRC/Mark_Stephen_Molina_Resume.pdf" "$ROOT/assets/docs/Mark_Stephen_Molina_Resume.pdf"
