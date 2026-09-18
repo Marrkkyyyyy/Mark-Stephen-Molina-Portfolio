@@ -330,6 +330,14 @@
   position: absolute;
   inset: 0;
   display: grid;
+  /* The single grid track must be sized by the STAGE, not by the image.
+     Left as the default 'auto' the row takes the image's own height, so the
+     image's percentage max-height resolves against itself, goes cyclic, and is
+     silently dropped — leaving only max-width to constrain. Landscape scans got
+     away with it; a portrait photo overflowed the viewport. minmax(0, 1fr)
+     makes the area definite so both maxima resolve. */
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   place-items: center;
   padding: clamp(3.5rem, 8vw, 5rem) clamp(1rem, 6vw, 5rem) clamp(5.5rem, 11vw, 7rem);
   overflow: hidden;
