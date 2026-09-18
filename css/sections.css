@@ -658,7 +658,6 @@
 .setup {
   display: grid;
   gap: var(--sp-6);
-  counter-reset: setup;
 }
 .setup li { display: grid; }
 .setup figure { margin: 0; display: grid; gap: var(--sp-4); }
@@ -690,11 +689,7 @@
   color: var(--accent);
   margin-bottom: var(--sp-1);
 }
-.setup__step::before {
-  counter-increment: setup;
-  content: "0" counter(setup) " / ";
-  color: var(--text-subtle);
-}
+.setup__year { color: var(--text-subtle); }
 
 /* 2x2 rather than 4-across: four photos in one row would be ~250px each, and
    these are photographs, not thumbnails. Reads left to right, top to bottom,
