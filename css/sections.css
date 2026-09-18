@@ -687,7 +687,6 @@
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: var(--sp-1);
 }
 .setup__year { color: var(--text-subtle); }
 

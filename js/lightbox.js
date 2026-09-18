@@ -45,21 +45,14 @@ export function initLightbox() {
   }));
 
   // The desk photos are read straight out of the DOM rather than duplicated in
-  // a data file, so their captions can only ever say what the page says. The
-  // "01 /" prefix on each step is a CSS ::before, so textContent is already
-  // clean.
+  // a data file, so the viewer can only ever say what the page says.
   const photoTriggers = [...document.querySelectorAll('[data-photo]')];
   collections.photo = photoTriggers.map((btn) => {
     const figure = btn.closest('figure');
-    const caption = figure?.querySelector('figcaption');
-    const text = caption
-      ? [...caption.childNodes].filter((n) => n.nodeType === Node.TEXT_NODE)
-          .map((n) => n.textContent).join(' ').replace(/\s+/g, ' ').trim()
-      : '';
     return {
       src: btn.dataset.photo,
       title: figure?.querySelector('.setup__step')?.textContent.trim() || '',
-      meta: text,
+      meta: '',
       alt: btn.querySelector('img')?.alt || '',
     };
   });
