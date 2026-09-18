@@ -699,3 +699,22 @@
 @media (min-width: 768px) {
   .setup { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
 }
+
+/* The desk photos open in the shared image viewer. A real <button> rather than
+   a click handler on the <img>, so it is reachable and operable by keyboard. */
+.setup__open {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: var(--r-md);
+  width: 100%;
+}
+.setup__open .setup__shot {
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.setup__open:hover .setup__shot {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}

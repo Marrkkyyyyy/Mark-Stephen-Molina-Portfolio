@@ -1053,9 +1053,13 @@
     <ol class="setup">
       <li class="reveal">
         <figure>
-          <img class="setup__shot setup__shot--tall" src="assets/img/setup/desk-01-first.webp"
+          <button class="setup__open" type="button"
+               data-photo="assets/img/setup/full/desk-01-first.webp"
+               aria-label="View a larger photo of first desk">
+            <img class="setup__shot setup__shot--tall" src="assets/img/setup/desk-01-first.webp"
                width="1000" height="1333" loading="lazy" decoding="async"
                alt="First desk: a wooden table with a sticker-covered laptop, one monitor, a mechanical keyboard and a cartoon mousepad">
+          </button>
           <figcaption>
             <span class="setup__step">First desk</span>
             A wooden table, one monitor, and a laptop covered in language stickers.
@@ -1064,9 +1068,13 @@
       </li>
       <li class="reveal" style="--reveal-delay:90ms">
         <figure>
-          <img class="setup__shot" src="assets/img/setup/desk-02-build.webp"
+          <button class="setup__open" type="button"
+               data-photo="assets/img/setup/full/desk-02-build.webp"
+               aria-label="View a larger photo of the PC build">
+            <img class="setup__shot" src="assets/img/setup/desk-02-build.webp"
                width="1000" height="718" loading="lazy" decoding="async"
                alt="Later setup: ultrawide monitor, hexagon RGB wall lights and a water-cooled PC in a clear case">
+          </button>
           <figcaption>
             <span class="setup__step">Then I built the PC</span>
             Water-cooled, clear case, and rather too many wall lights.
@@ -1075,9 +1083,13 @@
       </li>
       <li class="reveal" style="--reveal-delay:180ms">
         <figure>
-          <img class="setup__shot" src="assets/img/setup/desk-03-now.webp"
+          <button class="setup__open" type="button"
+               data-photo="assets/img/setup/full/desk-03-now.webp"
+               aria-label="View a larger photo of the current desk">
+            <img class="setup__shot" src="assets/img/setup/desk-03-now.webp"
                width="1000" height="750" loading="lazy" decoding="async"
                alt="Current setup: standing desk, ultrawide running an editor and terminal, and a vertical monitor and phone both showing the app being built">
+          </button>
           <figcaption>
             <span class="setup__step">Now</span>
             Standing desk, and whatever I'm shipping running on the phone next to it.
@@ -1138,7 +1150,7 @@
 </footer>
 
 <!-- ================= LIGHTBOX ================= -->
-<dialog class="lightbox" id="lightbox" aria-label="Certificate viewer">
+<dialog class="lightbox" id="lightbox" aria-label="Image viewer">
   <div class="lightbox__bar">
     <span class="lightbox__hint mono">Scroll or click to zoom · ← → to browse · Esc to close</span>
     <span class="lightbox__count mono" id="lbCount"></span>

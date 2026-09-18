@@ -1,8 +1,13 @@
-/* Certificate viewer.
+/* Image viewer.
  *
  * Built on <dialog>.showModal(), which gives the focus trap, the ::backdrop
  * and Esc-to-close for free. Adds zoom/pan, arrow-key browsing, a counter and
  * neighbour preloading so next/prev is instant.
+ *
+ * Works on named COLLECTIONS so arrow-keys never wander between unrelated sets
+ * of images: browsing certificates stays inside the 18 certificates, browsing
+ * desk photos stays inside the three desks. Each item is
+ * { src, title, meta, alt }.
  */
 
 import { CERTIFICATES } from './certificates.js';
@@ -10,6 +15,8 @@ import { CERTIFICATES } from './certificates.js';
 const FULL  = (slug) => `assets/certificates/full/${slug}.webp`;
 const MAX_SCALE = 4;
 
+const collections = {};
+let items = [];
 let index = 0;
 let scale = 1;
 let tx = 0, ty = 0;
@@ -30,15 +37,51 @@ export function initLightbox() {
   };
   if (!el.dialog || typeof el.dialog.showModal !== 'function') return;
 
-  // Anything with data-cert opens the viewer: the tiles, the "View certificate"
-  // buttons on award cards, and the FarmFinds award chip.
+  collections.certificate = CERTIFICATES.map((c) => ({
+    src: FULL(c.slug),
+    title: c.title,
+    meta: c.detail ? `${c.issuer} · ${c.date} — ${c.detail}` : `${c.issuer} · ${c.date}`,
+    alt: `Certificate: ${c.title}, ${c.issuer}, ${c.date}`,
+  }));
+
+  // The desk photos are read straight out of the DOM rather than duplicated in
+  // a data file, so their captions can only ever say what the page says. The
+  // "01 /" prefix on each step is a CSS ::before, so textContent is already
+  // clean.
+  const photoTriggers = [...document.querySelectorAll('[data-photo]')];
+  collections.photo = photoTriggers.map((btn) => {
+    const figure = btn.closest('figure');
+    const caption = figure?.querySelector('figcaption');
+    const text = caption
+      ? [...caption.childNodes].filter((n) => n.nodeType === Node.TEXT_NODE)
+          .map((n) => n.textContent).join(' ').replace(/\s+/g, ' ').trim()
+      : '';
+    return {
+      src: btn.dataset.photo,
+      title: figure?.querySelector('.setup__step')?.textContent.trim() || '',
+      meta: text,
+      alt: btn.querySelector('img')?.alt || '',
+    };
+  });
+
+  // data-cert: certificate tiles, "View certificate" buttons, the FarmFinds
+  // award chip. data-photo: the desk photos.
   document.addEventListener('click', (e) => {
-    const trigger = e.target.closest('[data-cert]');
-    if (!trigger) return;
-    const i = CERTIFICATES.findIndex((c) => c.slug === trigger.dataset.cert);
-    if (i < 0) return;
-    e.preventDefault();
-    open(i, trigger);
+    const cert = e.target.closest('[data-cert]');
+    if (cert) {
+      const i = CERTIFICATES.findIndex((c) => c.slug === cert.dataset.cert);
+      if (i < 0) return;
+      e.preventDefault();
+      open('certificate', i, cert);
+      return;
+    }
+    const photo = e.target.closest('[data-photo]');
+    if (photo) {
+      const i = photoTriggers.indexOf(photo);
+      if (i < 0) return;
+      e.preventDefault();
+      open('photo', i, photo);
+    }
   });
 
   el.prev.addEventListener('click', () => go(-1));
@@ -68,12 +111,20 @@ export function initLightbox() {
 
   el.dialog.addEventListener('close', () => {
     zoomTo(1);
-    opener?.focus();
+    // Deferred on purpose: during the 'close' event the dialog is still in the
+    // top layer, so focusing an element outside it is ignored and focus is left
+    // stranded on the dialog's own close button. A timer rather than
+    // requestAnimationFrame because rAF does not fire in a backgrounded tab,
+    // which would leave focus stranded exactly when nobody is watching.
+    const trigger = opener;
     opener = null;
+    if (trigger) setTimeout(() => trigger.focus(), 0);
   });
 }
 
-function open(i, trigger) {
+function open(collection, i, trigger) {
+  items = collections[collection] || [];
+  if (!items.length) return;
   opener = trigger;
   render(i);
   el.dialog.showModal();
@@ -81,28 +132,29 @@ function open(i, trigger) {
 
 function go(step) {
   const next = index + step;
-  if (next < 0 || next >= CERTIFICATES.length) return;
+  if (next < 0 || next >= items.length) return;   // never leaves the collection
   render(next);
 }
 
 function render(i) {
   index = i;
-  const c = CERTIFICATES[i];
+  const item = items[i];
+  if (!item) return;
   zoomTo(1);
 
-  el.img.src = FULL(c.slug);
-  el.img.alt = `Certificate: ${c.title}, ${c.issuer}, ${c.date}`;
-  el.title.textContent = c.title;
-  el.meta.textContent = c.detail
-    ? `${c.issuer} · ${c.date} — ${c.detail}`
-    : `${c.issuer} · ${c.date}`;
-  el.count.textContent = `${i + 1} / ${CERTIFICATES.length}`;
+  el.img.src = item.src;
+  el.img.alt = item.alt;
+  el.title.textContent = item.title;
+  el.meta.textContent = item.meta;
+  // A single-item collection has nothing to count through.
+  el.count.textContent = items.length > 1 ? `${i + 1} / ${items.length}` : '';
   el.prev.disabled = i === 0;
-  el.next.disabled = i === CERTIFICATES.length - 1;
+  el.next.disabled = i === items.length - 1;
+  el.prev.hidden = el.next.hidden = items.length < 2;
 
   // Preload the neighbours so browsing feels instant.
   for (const j of [i - 1, i + 1]) {
-    if (CERTIFICATES[j]) new Image().src = FULL(CERTIFICATES[j].slug);
+    if (items[j]) new Image().src = items[j].src;
   }
 }
 
