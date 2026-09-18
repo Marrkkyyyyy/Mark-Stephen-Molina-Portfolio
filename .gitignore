@@ -1,2 +1,6 @@
 .DS_Store
 *.log
+
+# Source photo originals — 26MB of HEIC, converted into assets/img/setup/.
+# This repo publishes to GitHub Pages; only the converted WebP files ship.
+assets/desktop/

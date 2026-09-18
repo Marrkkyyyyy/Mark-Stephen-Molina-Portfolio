@@ -105,6 +105,31 @@ PHOTO="$SRC/Mark Stephen B. Molina.jpg"
 cwebp -quiet -q 82 -m 6 -resize  900 0 "$PHOTO" -o "$IMG/profile.webp"
 cwebp -quiet -q 78 -m 6 -resize 1800 0 "$PHOTO" -o "$IMG/profile@2x.webp"
 
+echo "==> desk photos"
+# Three shots picked as a progression. HEIC goes through sips first because
+# cwebp does not read it; the JPEG can go straight in.
+DESK="$ROOT/assets/img/setup"
+mkdir -p "$DESK"
+desk() {   # src slug
+  local src="$1" slug="$2" tmp
+  if [ ! -f "$src" ]; then echo "  !! missing: $src" >&2; return 0; fi
+  case "$src" in
+    *.HEIC|*.heic)
+      tmp="$(mktemp -t deskXXXX).jpg"
+      sips -s format jpeg -Z 2000 "$src" --out "$tmp" >/dev/null 2>&1
+      cwebp -quiet -q 80 -m 6 -resize 1000 0 "$tmp" -o "$DESK/$slug.webp"
+      rm -f "$tmp" ;;
+    *)
+      cwebp -quiet -q 80 -m 6 -resize 1000 0 "$src" -o "$DESK/$slug.webp" ;;
+  esac
+  printf '  %-14s %5sKB -> %4sKB\n' "$slug" \
+    "$(( $(stat -f%z "$src") / 1024 ))" "$(( $(stat -f%z "$DESK/$slug.webp") / 1024 ))"
+}
+DESK_SRC="$ROOT/assets/desktop"
+desk "$DESK_SRC/56d284bafca53ae68eea50c7396c4b09.JPEG" "desk-01-first"
+desk "$DESK_SRC/IMG_1250.heic"                          "desk-02-build"
+desk "$DESK_SRC/IMG_3346.HEIC"                          "desk-03-now"
+
 echo "==> resume"
 cp "$SRC/Mark_Stephen_Molina_Resume.pdf" "$ROOT/assets/docs/Mark_Stephen_Molina_Resume.pdf"
 

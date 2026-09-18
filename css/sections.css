@@ -648,3 +648,54 @@
   text-decoration-color: color-mix(in srgb, var(--text-subtle) 50%, transparent);
 }
 .hero__live a:hover { color: var(--accent); }
+
+/* --- setup -------------------------------------------------------------- */
+
+/* An ordered list because the sequence is the point. The three photos have
+   different native aspect ratios, so they are normalised to 4:3 and cropped in
+   CSS rather than destructively, which keeps the crop tunable by eye. */
+
+.setup {
+  display: grid;
+  gap: var(--sp-6);
+  counter-reset: setup;
+}
+.setup li { display: grid; }
+.setup figure { margin: 0; display: grid; gap: var(--sp-4); }
+
+.setup__shot {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 58%;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+/* The first photo is portrait, so bias the crop down to the desk itself
+   rather than the wall above it. */
+.setup__shot--tall { object-position: center 72%; }
+
+.setup figcaption {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+.setup__step {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--sp-1);
+}
+.setup__step::before {
+  counter-increment: setup;
+  content: "0" counter(setup) " / ";
+  color: var(--text-subtle);
+}
+
+@media (min-width: 768px) {
+  .setup { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+}
