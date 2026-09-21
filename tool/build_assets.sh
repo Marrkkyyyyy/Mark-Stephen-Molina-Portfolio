@@ -175,6 +175,25 @@ else
   echo "  !! missing: $AWARD_SRC" >&2
 fi
 
+echo "==> robotics photos"
+# 2023 Arduino builds, from portrait phone shots. Each crop box is the 4:3
+# landscape region holding the build, measured by eye against the original.
+RIG="$ROOT/assets/img/robotics"
+mkdir -p "$RIG/full"
+rig() {   # slug x y w h
+  local src="$ROOT/assets/originals/robotics/$1.jpg"
+  if [ ! -f "$src" ]; then echo "  !! missing: $src" >&2; return 0; fi
+  cwebp -quiet -q 72 -m 6 -sharp_yuv -crop "$2" "$3" "$4" "$5" -resize 1000 0 "$src" -o "$RIG/$1.webp"
+  cwebp -quiet -q 74 -m 6 -sharp_yuv -crop "$2" "$3" "$4" "$5" -resize 1500 0 "$src" -o "$RIG/full/$1.webp"
+  printf '  %-22s %5sKB -> page %3sKB / full %3sKB\n' "$1" \
+    "$(( $(stat -f%z "$src") / 1024 ))" \
+    "$(( $(stat -f%z "$RIG/$1.webp") / 1024 ))" \
+    "$(( $(stat -f%z "$RIG/full/$1.webp") / 1024 ))"
+}
+rig robotics-01-rover   618 1500 1967 1475
+rig robotics-02-sensors 112 1400 3035 2276
+rig robotics-03-frame   562 1750 2894 2170
+
 echo "==> resume"
 cp "$SRC/Mark_Stephen_Molina_Resume.pdf" "$ROOT/assets/docs/Mark_Stephen_Molina_Resume.pdf"
 

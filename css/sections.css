@@ -851,3 +851,54 @@
     align-items: center;
   }
 }
+
+/* ---------------------------------------------------------------- robotics
+   A second chapter inside "Outside the code": the same desk, two years before
+   the client work. Deliberately uncaptioned — the pictures are the claim, and
+   a caption on each would turn three photographs into three assertions about
+   projects that are not what the page is selling. Three across rather than the
+   desks' 2x2, so the two groups never read as one grid. */
+
+.rig__title {
+  margin-top: var(--sp-9);
+  padding-top: var(--sp-8);
+  border-top: 1px solid var(--border);
+}
+.rig__lead {
+  margin-top: var(--sp-2);
+  color: var(--text-muted);
+  max-width: var(--prose);
+}
+
+.rig {
+  margin-top: var(--sp-6);
+  display: grid;
+  gap: var(--sp-5);
+}
+.rig li { display: grid; }
+.rig__open {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: var(--r-md);
+  width: 100%;
+}
+.rig__shot {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.rig__open:hover .rig__shot {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .rig { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+}
