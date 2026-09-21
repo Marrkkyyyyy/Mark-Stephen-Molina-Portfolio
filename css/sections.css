@@ -809,3 +809,45 @@
 /* Only the Cum Laude row has a scan behind it; justify-self keeps the button
    its own width rather than stretching across the grid row. */
 .grad__cert { justify-self: start; margin-top: var(--sp-2); }
+
+/* ------------------------------------------------------- feature award card
+   One award in the grid carries a photograph: the HACKFORGOV plaque, where the
+   award line alone ("3rd place, capture-the-flag") tells a reader nothing about
+   what was actually won. It spans the full grid width so the photo has room
+   without stretching whichever card would otherwise share its row. */
+
+.award__open {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: var(--r-md);
+  width: 100%;
+}
+.award__shot {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.award__open:hover .award__shot {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.award--feature { gap: var(--sp-5); }
+.award__body { display: grid; gap: var(--sp-3); align-content: center; }
+.award__note { max-width: 62ch; text-wrap: pretty; }
+
+@media (min-width: 768px) {
+  .award--feature {
+    grid-column: 1 / -1;
+    grid-template-columns: clamp(16rem, 38%, 26rem) minmax(0, 1fr);
+    gap: var(--sp-6);
+    align-items: center;
+  }
+}

@@ -17,9 +17,9 @@ export const CERTIFICATES = [
   {
     "slug": "hackforgov-3rd-place-2023",
     "title": "HACKFORGOV Capture-the-Flag — 3rd Place",
-    "issuer": "Department of ICT, Region XII",
-    "date": "September 2023",
-    "detail": "Award of Excellence · “Building Cyber Champions” national CTF"
+    "issuer": "SEAIT — College of ICT",
+    "date": "October 2023",
+    "detail": "Award of Excellence for 3rd place in the DICT HACKFORGOV 2023 competition"
   },
   {
     "slug": "deans-list-academic-excellence-2023",

@@ -21,8 +21,10 @@ const CERTS = [
     detail:'Award of Excellence · 11th PSIT Regional Convention, General Santos City' },
   { tier:'headline', slug:'hackforgov-3rd-place-2023',
     title:'HACKFORGOV Capture-the-Flag — 3rd Place',
-    issuer:'Department of ICT, Region XII', date:'September 2023',
-    detail:'Award of Excellence · “Building Cyber Champions” national CTF' },
+    // Issued by his own college, not by DICT: the scan heads with SEAIT College
+    // of ICT and is dated 14 October 2023, six weeks after the DICT round.
+    issuer:'SEAIT — College of ICT', date:'October 2023',
+    detail:'Award of Excellence for 3rd place in the DICT HACKFORGOV 2023 competition' },
   { tier:'headline', slug:'deans-list-academic-excellence-2023',
     title:'Academic Excellence — Dean’s List',
     issuer:'South East Asian Institute of Technology', date:'AY 2022–2023',

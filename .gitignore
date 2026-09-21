@@ -5,5 +5,5 @@
 # This repo publishes to GitHub Pages; only the converted WebP files ship.
 assets/desktop/
 
-# Graduation photo original, converted into assets/img/grad/.
+# Photo originals for the credentials section, converted into assets/img/.
 assets/originals/

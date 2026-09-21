@@ -156,6 +156,25 @@ else
   echo "  !! missing: $GRAD_SRC" >&2
 fi
 
+echo "==> award photo"
+# The plaque and certificate together, cropped to the 16:9 band that holds both
+# and drops the ceiling and the tabletop. Source is a 3456x4608 phone shot.
+AWARD="$ROOT/assets/img/awards"
+mkdir -p "$AWARD/full"
+AWARD_SRC="$ROOT/assets/originals/hackforgov-2023.jpg"
+if [ -f "$AWARD_SRC" ]; then
+  for pair in "1000 $AWARD/hackforgov-2023.webp" "1800 $AWARD/full/hackforgov-2023.webp"; do
+    set -- $pair
+    cwebp -quiet -q 76 -m 6 -sharp_yuv -crop 42 1340 2890 1626 -resize "$1" 0 "$AWARD_SRC" -o "$2"
+  done
+  printf '  %-16s %5sKB -> page %3sKB / full %3sKB\n' "hackforgov-2023" \
+    "$(( $(stat -f%z "$AWARD_SRC") / 1024 ))" \
+    "$(( $(stat -f%z "$AWARD/hackforgov-2023.webp") / 1024 ))" \
+    "$(( $(stat -f%z "$AWARD/full/hackforgov-2023.webp") / 1024 ))"
+else
+  echo "  !! missing: $AWARD_SRC" >&2
+fi
+
 echo "==> resume"
 cp "$SRC/Mark_Stephen_Molina_Resume.pdf" "$ROOT/assets/docs/Mark_Stephen_Molina_Resume.pdf"
 
