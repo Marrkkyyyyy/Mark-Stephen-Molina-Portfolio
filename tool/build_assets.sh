@@ -190,9 +190,18 @@ rig() {   # slug x y w h
     "$(( $(stat -f%z "$RIG/$1.webp") / 1024 ))" \
     "$(( $(stat -f%z "$RIG/full/$1.webp") / 1024 ))"
 }
+rig_full() {   # slug — published whole, no crop box
+  local src="$ROOT/assets/originals/robotics/$1.jpg"
+  if [ ! -f "$src" ]; then echo "  !! missing: $src" >&2; return 0; fi
+  cwebp -quiet -q 72 -m 6 -sharp_yuv -resize 1000 0 "$src" -o "$RIG/$1.webp"
+  cwebp -quiet -q 74 -m 6 -sharp_yuv -resize 1500 0 "$src" -o "$RIG/full/$1.webp"
+  printf "  %-22s whole frame -> page %3sKB / full %3sKB\n" "$1" \
+    "$(( $(stat -f%z "$RIG/$1.webp") / 1024 ))" \
+    "$(( $(stat -f%z "$RIG/full/$1.webp") / 1024 ))"
+}
 rig robotics-01-rover    618 1500 1967 1475
 rig robotics-02-frame    562 1750 2894 2170
-rig robotics-03-floor    731 2917 2248 1687
+rig_full robotics-03-floor
 rig robotics-04-sensors  112 1400 3035 2276
 rig robotics-05-boards     0 1124 3456 2585
 rig robotics-06-rig      337 1180 3035 2276

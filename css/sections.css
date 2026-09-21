@@ -856,7 +856,7 @@
    A second chapter inside "Outside the code": the same desk, two years before
    the client work. Deliberately uncaptioned — the pictures are the claim, and
    a caption on each would turn three photographs into three assertions about
-   projects that are not what the page is selling. Three across rather than the
+   projects that are not what the page is selling. Three columns rather than the
    desks' 2x2, so the two groups never read as one grid. */
 
 .rig__title {
@@ -870,12 +870,16 @@
   max-width: var(--prose);
 }
 
+/* Columns rather than a grid: one of these is portrait and the rest are
+   landscape, and a grid row would either stretch them or crop them back to a
+   shared box. Columns let each photograph keep its own shape and simply flow. */
 .rig {
   margin-top: var(--sp-6);
-  display: grid;
-  gap: var(--sp-5);
+  columns: 1;
+  column-gap: var(--sp-5);
 }
-.rig li { display: grid; }
+.rig li { break-inside: avoid; margin-bottom: var(--sp-5); }
+.rig li:last-child { margin-bottom: 0; }
 .rig__open {
   display: block;
   padding: 0;
@@ -886,9 +890,9 @@
   width: 100%;
 }
 .rig__shot {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto;
   border-radius: var(--r-md);
   border: 1px solid var(--border);
   background: var(--surface-2);
@@ -900,5 +904,5 @@
 }
 
 @media (min-width: 768px) {
-  .rig { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+  .rig { columns: 3; }
 }
