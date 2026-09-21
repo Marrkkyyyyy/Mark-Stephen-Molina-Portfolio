@@ -190,9 +190,12 @@ rig() {   # slug x y w h
     "$(( $(stat -f%z "$RIG/$1.webp") / 1024 ))" \
     "$(( $(stat -f%z "$RIG/full/$1.webp") / 1024 ))"
 }
-rig robotics-01-rover   618 1500 1967 1475
-rig robotics-02-sensors 112 1400 3035 2276
-rig robotics-03-frame   562 1750 2894 2170
+rig robotics-01-rover    618 1500 1967 1475
+rig robotics-02-frame    562 1750 2894 2170
+rig robotics-03-floor    731 2917 2248 1687
+rig robotics-04-sensors  112 1400 3035 2276
+rig robotics-05-boards     0 1124 3456 2585
+rig robotics-06-rig      337 1180 3035 2276
 
 echo "==> resume"
 cp "$SRC/Mark_Stephen_Molina_Resume.pdf" "$ROOT/assets/docs/Mark_Stephen_Molina_Resume.pdf"
