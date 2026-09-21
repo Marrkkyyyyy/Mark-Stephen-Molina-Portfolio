@@ -175,6 +175,26 @@ else
   echo "  !! missing: $AWARD_SRC" >&2
 fi
 
+echo "==> medals flat-lay"
+# HEIC first: cwebp cannot read it, and sips bakes the camera orientation on
+# the way out, which matters here - the raw buffer is landscape and the pile
+# only reads properly that way round. Crop drops the floor tiles and the
+# laptop corner at the edges.
+MEDALS_SRC="$ROOT/assets/originals/medals-2024.jpg"
+if [ ! -f "$MEDALS_SRC" ] && [ -f "$ROOT/assets/originals/medals-2024.heic" ]; then
+  sips -s format jpeg "$ROOT/assets/originals/medals-2024.heic" --out "$MEDALS_SRC" >/dev/null 2>&1
+fi
+if [ -f "$MEDALS_SRC" ]; then
+  cwebp -quiet -q 70 -m 6 -sharp_yuv -crop 37 203 5657 3768 -resize 1200 0 "$MEDALS_SRC" -o "$AWARD/medals-2024.webp"
+  cwebp -quiet -q 74 -m 6 -sharp_yuv -crop 37 203 5657 3768 -resize 1800 0 "$MEDALS_SRC" -o "$AWARD/full/medals-2024.webp"
+  printf '  %-16s %5sKB -> page %3sKB / full %3sKB\n' "medals-2024" \
+    "$(( $(stat -f%z "$MEDALS_SRC") / 1024 ))" \
+    "$(( $(stat -f%z "$AWARD/medals-2024.webp") / 1024 ))" \
+    "$(( $(stat -f%z "$AWARD/full/medals-2024.webp") / 1024 ))"
+else
+  echo "  !! missing: $MEDALS_SRC" >&2
+fi
+
 echo "==> robotics photos"
 # 2023 Arduino builds, from portrait phone shots. Each crop box is the 4:3
 # landscape region holding the build, measured by eye against the original.

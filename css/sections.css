@@ -902,3 +902,38 @@
 @media (min-width: 768px) {
   .rig { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
 }
+
+/* -------------------------------------------------------------- the pile
+   Closes the credentials section. The certificates above are catalogued one
+   by one; this is all of them at once, medals included. Shot as a flat-lay,
+   so it wants the full column width rather than a card. */
+
+.pile { margin: var(--sp-8) 0 0; }
+.pile__open {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: var(--r-md);
+  width: 100%;
+}
+.pile__shot {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.pile__open:hover .pile__shot {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.pile figcaption {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--text-subtle);
+  text-wrap: pretty;
+}
