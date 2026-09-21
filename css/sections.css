@@ -870,16 +870,12 @@
   max-width: var(--prose);
 }
 
-/* Columns rather than a grid: one of these is portrait and the rest are
-   landscape, and a grid row would either stretch them or crop them back to a
-   shared box. Columns let each photograph keep its own shape and simply flow. */
 .rig {
   margin-top: var(--sp-6);
-  columns: 1;
-  column-gap: var(--sp-5);
+  display: grid;
+  gap: var(--sp-5);
 }
-.rig li { break-inside: avoid; margin-bottom: var(--sp-5); }
-.rig li:last-child { margin-bottom: 0; }
+.rig li { display: grid; }
 .rig__open {
   display: block;
   padding: 0;
@@ -889,10 +885,14 @@
   border-radius: var(--r-md);
   width: 100%;
 }
+/* Uniform tiles: the strip is a contact sheet, and six photographs at their
+   own aspect ratios read as a mistake rather than a choice. The crop is only
+   the thumbnail — assets/img/robotics/full/ holds the whole frame, which is
+   what the viewer opens. */
 .rig__shot {
-  display: block;
   width: 100%;
-  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   border-radius: var(--r-md);
   border: 1px solid var(--border);
   background: var(--surface-2);
@@ -904,5 +904,5 @@
 }
 
 @media (min-width: 768px) {
-  .rig { columns: 3; }
+  .rig { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
 }
