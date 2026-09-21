@@ -6,7 +6,7 @@
  *
  * Works on named COLLECTIONS so arrow-keys never wander between unrelated sets
  * of images: browsing certificates stays inside the 18 certificates, browsing
- * desk photos stays inside the three desks. Each item is
+ * desk photos stays inside the desks. Each item is
  * { src, title, meta, alt }.
  */
 
@@ -44,21 +44,27 @@ export function initLightbox() {
     alt: `Certificate: ${c.title}, ${c.issuer}, ${c.date}`,
   }));
 
-  // The desk photos are read straight out of the DOM rather than duplicated in
-  // a data file, so the viewer can only ever say what the page says.
+  // Photos are read straight out of the DOM rather than duplicated in a data
+  // file, so the viewer can only ever say what the page says. Each one declares
+  // which set it belongs to, so arrowing through the desks never lands on the
+  // graduation photo; data-photo-set defaults to the desks.
   const photoTriggers = [...document.querySelectorAll('[data-photo]')];
-  collections.photo = photoTriggers.map((btn) => {
-    const figure = btn.closest('figure');
-    return {
+  for (const btn of photoTriggers) {
+    const key = `photo:${btn.dataset.photoSet || 'setup'}`;
+    const set = (collections[key] ||= []);
+    btn.dataset.photoIndex = set.length;
+    set.push({
       src: btn.dataset.photo,
-      title: figure?.querySelector('.setup__step')?.textContent.trim() || '',
-      meta: '',
+      title: btn.dataset.photoTitle
+        || btn.closest('figure')?.querySelector('.setup__step')?.textContent.trim()
+        || '',
+      meta: btn.dataset.photoMeta || '',
       alt: btn.querySelector('img')?.alt || '',
-    };
-  });
+    });
+  }
 
   // data-cert: certificate tiles, "View certificate" buttons, the FarmFinds
-  // award chip. data-photo: the desk photos.
+  // award chip. data-photo: the desk and graduation photos.
   document.addEventListener('click', (e) => {
     const cert = e.target.closest('[data-cert]');
     if (cert) {
@@ -70,10 +76,10 @@ export function initLightbox() {
     }
     const photo = e.target.closest('[data-photo]');
     if (photo) {
-      const i = photoTriggers.indexOf(photo);
-      if (i < 0) return;
+      const i = Number(photo.dataset.photoIndex);
+      if (!Number.isInteger(i)) return;
       e.preventDefault();
-      open('photo', i, photo);
+      open(`photo:${photo.dataset.photoSet || 'setup'}`, i, photo);
     }
   });
 

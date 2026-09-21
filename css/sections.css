@@ -715,3 +715,93 @@
   border-color: var(--accent);
   transform: translateY(-2px);
 }
+
+/* ---------------------------------------------------------------- graduation
+   Leads the Credentials section. The photo is not decoration: both medals and
+   the Cum Laude certificate are visible in it, so it is the evidence for the
+   two honours listed beside it. Portrait source, shown uncropped — cropping a
+   person to a 4:3 box the way the desk photos are cropped would cut the very
+   thing the picture is there to show. */
+
+.grad {
+  display: grid;
+  gap: var(--sp-6);
+  margin-bottom: var(--sp-8);
+  padding-bottom: var(--sp-8);
+  border-bottom: 1px solid var(--border);
+}
+
+.grad__open {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: var(--r-md);
+  width: 100%;
+}
+.grad__shot {
+  width: 100%;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.grad__open:hover .grad__shot {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.grad__body { display: grid; gap: var(--sp-3); align-content: center; }
+
+.grad__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.grad__title { margin: 0; font-size: var(--fs-h3); }
+
+/* Numbered because there are exactly two and the count is the point. */
+.grad__medals {
+  margin-top: var(--sp-3);
+  display: grid;
+  gap: 0;
+  counter-reset: medal;
+}
+.grad__medals li {
+  counter-increment: medal;
+  display: grid;
+  gap: var(--sp-1);
+  padding: var(--sp-4) 0 var(--sp-4) var(--sp-7);
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.grad__medals li:last-child { border-bottom: 1px solid var(--border); }
+.grad__medals li::before {
+  content: counter(medal, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: calc(var(--sp-4) + 0.15em);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  color: var(--accent);
+}
+.grad__medals b { font-weight: 600; font-size: var(--fs-lead); line-height: var(--lh-snug); }
+.grad__medals span { font-size: var(--fs-sm); color: var(--text-muted); text-wrap: pretty; }
+
+/* The photo is portrait and tall; left unconstrained in a 50/50 split it would
+   tower over the two lines beside it. Capping its column keeps the pair the
+   same optical weight. */
+@media (min-width: 768px) {
+  .grad {
+    /* A sized track rather than a fraction with a max-width on the photo: with
+       the cap on the photo the track keeps the leftover slack, so the gutter
+       silently grows past the gap. Here the photo fills its track exactly. */
+    grid-template-columns: clamp(18rem, 32%, 22rem) minmax(0, 1fr);
+    gap: var(--sp-8);
+    align-items: center;
+  }
+  .grad__open { width: 100%; }
+}

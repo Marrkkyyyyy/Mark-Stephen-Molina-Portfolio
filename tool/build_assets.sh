@@ -137,6 +137,24 @@ desk "$DESK_SRC/IMG_0747.HEIC"                          "desk-02-ultrawide"
 desk "$DESK_SRC/IMG_1250.heic"                          "desk-03-build"
 desk "$DESK_SRC/IMG_3346.HEIC"                          "desk-04-now"
 
+echo "==> graduation photo"
+# Both medals and the Cum Laude certificate are legible in this one frame, so it
+# is shown uncropped. The source is already a 960px phone export - never upscale
+# it; the "full" copy is the native size and the page copy is 760 wide.
+GRAD="$ROOT/assets/img/grad"
+mkdir -p "$GRAD/full"
+GRAD_SRC="$ROOT/assets/originals/graduation-2024.jpg"
+if [ -f "$GRAD_SRC" ]; then
+  cwebp -quiet -q 72 -m 6 -sharp_yuv -resize 760 0 "$GRAD_SRC" -o "$GRAD/graduation-2024.webp"
+  cwebp -quiet -q 74 -m 6 -sharp_yuv                "$GRAD_SRC" -o "$GRAD/full/graduation-2024.webp"
+  printf '  %-16s %5sKB -> page %3sKB / full %3sKB\n' "graduation-2024" \
+    "$(( $(stat -f%z "$GRAD_SRC") / 1024 ))" \
+    "$(( $(stat -f%z "$GRAD/graduation-2024.webp") / 1024 ))" \
+    "$(( $(stat -f%z "$GRAD/full/graduation-2024.webp") / 1024 ))"
+else
+  echo "  !! missing: $GRAD_SRC" >&2
+fi
+
 echo "==> resume"
 cp "$SRC/Mark_Stephen_Molina_Resume.pdf" "$ROOT/assets/docs/Mark_Stephen_Molina_Resume.pdf"
 

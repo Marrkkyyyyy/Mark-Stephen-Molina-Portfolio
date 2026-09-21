@@ -4,3 +4,6 @@
 # Source photo originals — 26MB of HEIC, converted into assets/img/setup/.
 # This repo publishes to GitHub Pages; only the converted WebP files ship.
 assets/desktop/
+
+# Graduation photo original, converted into assets/img/grad/.
+assets/originals/
