@@ -67,6 +67,7 @@ encode() {
 # different guest speaker, and two near-identical certificates read as padding.
 CERTS=(
   # ---- tier 1: headline awards ----
+  "Cumlaude.png|cum-laude-distinction-2024"
   "SKMBT_36324052807200_0004.jpg|champion-psit-programming-2023"
   "SKMBT_36324052807200_0005.jpg|hackforgov-3rd-place-2023"
   "SKMBT_36324052807200_0002.jpg|deans-list-academic-excellence-2023"

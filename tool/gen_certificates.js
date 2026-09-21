@@ -11,6 +11,10 @@
  */
 const CERTS = [
   // ---------------- tier 1: headline ----------------
+  { tier:'headline', slug:'cum-laude-distinction-2024',
+    title:'Academic Distinction — Cum Laude',
+    issuer:'South East Asian Institute of Technology', date:'June 2024',
+    detail:'BS Information Technology · 16th Commencement Exercises' },
   { tier:'headline', slug:'champion-psit-programming-2023',
     title:'Computer Programming — Champion',
     issuer:'PSITE–PSITS Region XII', date:'April 2023',
@@ -21,7 +25,7 @@ const CERTS = [
     detail:'Award of Excellence · “Building Cyber Champions” national CTF' },
   { tier:'headline', slug:'deans-list-academic-excellence-2023',
     title:'Academic Excellence — Dean’s List',
-    issuer:'Southeast Asian Institute of Technology', date:'AY 2022–2023',
+    issuer:'South East Asian Institute of Technology', date:'AY 2022–2023',
     detail:'General weighted average of 1.03' },
   { tier:'headline', slug:'national-it-skills-c-2024',
     title:'National IT Skills Competition — C Programming',

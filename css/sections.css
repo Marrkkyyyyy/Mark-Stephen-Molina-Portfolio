@@ -805,3 +805,7 @@
   }
   .grad__open { width: 100%; }
 }
+
+/* Only the Cum Laude row has a scan behind it; justify-self keeps the button
+   its own width rather than stretching across the grid row. */
+.grad__cert { justify-self: start; margin-top: var(--sp-2); }
