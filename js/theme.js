@@ -1,5 +1,7 @@
-/* Colour theme. The initial value is applied by an inline script in <head> so
-   there is no flash; this module only handles the toggle afterwards. */
+/* Colour theme. Light is the default, applied by an inline script in <head> so
+   there is no flash; this module only handles the toggle afterwards.
+   The system preference is deliberately not followed — Mark wants the site to
+   open light regardless of the visitor's OS setting. */
 
 const KEY = 'theme';
 const root = document.documentElement;
@@ -19,11 +21,4 @@ export function initTheme() {
   if (!btn) return;
 
   btn.addEventListener('click', () => apply(current() === 'light' ? 'dark' : 'light'));
-
-  // Follow the system until the visitor states a preference of their own.
-  matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-    let stored = null;
-    try { stored = localStorage.getItem(KEY); } catch {}
-    if (!stored) apply(e.matches ? 'light' : 'dark');
-  });
 }

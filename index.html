@@ -7,7 +7,7 @@
 <title>Mark Stephen Molina — Flutter &amp; Full-Stack Developer</title>
 <meta name="description" content="Flutter developer building production mobile apps and the serverless backends behind them. Full-Stack Developer at HeyJag (Florida, USA) — shipped a four-app marketplace platform with 105 Cloud Functions, live in the App Store and Google Play. BS Information Technology, Cum Laude 2024.">
 <meta name="author" content="Mark Stephen Molina">
-<meta name="theme-color" content="#0b0f14">
+<meta name="theme-color" content="#fbfcfd">
 <link rel="canonical" href="https://marrkkyyyyy.github.io/Mark-Stephen-Molina-Portfolio/">
 
 <meta property="og:type" content="profile">
@@ -40,8 +40,8 @@
 <script>
   /* Set the theme before first paint so there is no flash of the wrong one. */
   try {
-    var t = localStorage.getItem('theme');
-    if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    /* Light unless the visitor has chosen dark with the toggle. */
+    var t = localStorage.getItem('theme') || 'light';
     if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
   } catch (e) {}
 </script>
