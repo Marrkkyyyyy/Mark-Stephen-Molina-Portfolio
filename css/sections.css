@@ -702,6 +702,8 @@
   color: var(--accent);
 }
 .setup__year { color: var(--text-subtle); }
+/* The machine at the time — one plain line, so the upgrade reads as a story. */
+.setup__spec { display: block; margin-top: var(--sp-1); font-size: var(--fs-sm); color: var(--text-muted); }
 
 /* 2x2 rather than 4-across: four photos in one row would be ~250px each, and
    these are photographs, not thumbnails. Reads left to right, top to bottom,
