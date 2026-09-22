@@ -182,11 +182,13 @@
   gap: var(--sp-2);
   padding: 0.3125rem var(--sp-3);
   border-radius: var(--r-full);
-  border: 1px solid var(--border);
-  background: var(--surface);
+  /* Filled with a faint accent tint rather than outlined: an outlined pill on
+     an off-white page read as an empty input, not as a label. */
+  border: 1px solid color-mix(in srgb, var(--accent) 16%, transparent);
+  background: color-mix(in srgb, var(--accent) 9%, var(--surface));
   font-family: var(--font-mono);
   font-size: var(--fs-mono);
-  color: var(--text-muted);
+  color: var(--text);
   white-space: nowrap;
 }
 .chip--accent {

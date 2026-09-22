@@ -399,7 +399,7 @@
      bullet rule on this page was a no-op until now, which is part of why
      the text-only case studies read as airy. */
   .case.is-textonly .case__points {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: var(--sp-7);
   }
 }
@@ -979,6 +979,21 @@
 .case--stacked .case__tabs-label { margin: var(--sp-7) 0 var(--sp-2); }
 .case--stacked .case__media { margin-top: var(--sp-4); }
 .case--stacked .case__detail { margin-top: var(--sp-6); display: grid; gap: var(--sp-5); }
+/* The stack, as a labelled line under the bullets. */
+.case--stacked .case__detail .cluster {
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--border);
+  align-items: center;
+}
+.case--stacked .case__detail .cluster::before {
+  content: "Built with";
+  margin-right: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
 
 /* A desktop screenshot at the full 1200 would be 750px tall at 16:10. */
 .case--stacked .gallery[data-kind="desktop"] { max-width: 900px; }
@@ -1006,20 +1021,11 @@
     text-align: right;
   }
 
-  /* bullets and chips share a row rather than stacking */
-  .case--stacked .case__detail {
-    grid-template-columns: minmax(0, 1fr) auto;
-    column-gap: var(--sp-9);
-    align-items: start;
-  }
+  /* Every case has three bullets: three equal columns, so none sits alone on
+     a second row. The chips get their own line underneath instead of a
+     narrow right-hand column that wrapped them 3 + 3 + 1. */
   .case--stacked .case__points {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: var(--sp-7);
-  }
-  .case--stacked .case__detail .cluster {
-    grid-column: 2;
-    grid-row: 1;
-    max-width: 18rem;
-    justify-content: flex-end;
   }
 }
