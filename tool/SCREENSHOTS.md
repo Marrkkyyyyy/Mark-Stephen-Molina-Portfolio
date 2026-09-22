@@ -7,7 +7,7 @@ changes, no rebuild — just reload the page.
 
 ```
 assets/screenshots/
-├── heyjag_customer/   01_explore.webp  02_food.webp  03_services.webp
+├── heyjag_customer/   01_home  02_restaurant  03_item  04_checkout  05_rides  (.webp)
 ├── heyjag_merchant/   01_dashboard.webp  02_menu.webp  03_financials.webp
 ├── heyjag_driver/     01_kyc.webp  02_active_delivery.webp  03_earnings.webp
 ├── heyjag_provider/   01_bookings.webp  02_workers.webp  03_team.webp
@@ -52,7 +52,25 @@ This is deliberate, and worth knowing so nothing looks broken while you work:
 
 The site never shows a broken image icon or a "add screenshot here" placeholder.
 
-## Where the HeyJag shots came from
+## Where the customer shots came from
+
+Mark's own iPhone 17 Pro simulator captures, 1206×2622, in `~/Desktop/Customer`. Raw app
+screens — no marketing composite, nothing to crop around:
+
+```bash
+cwebp -q 80 -m 6 -resize 1170 0 ~/Desktop/Customer/<shot>.png \
+  -o assets/screenshots/heyjag_customer/01_home.webp
+```
+
+1206×2622 is 0.4600 against the frame's 0.4615, so `object-fit: cover` trims about 0.3% — no
+crop box needed. Five of them, in journey order: home → restaurant → item → checkout → rides.
+The rail scroll-snaps, so more than three is fine.
+
+**Prefer this route for the other three apps.** Simulator captures beat the App Store crops on
+every axis; the store listings were only used because those apps need an authenticated account
+per role and the customer app is the one Mark could sign into.
+
+## Where the merchant, driver and provider shots came from
 
 Not from the simulator. All four apps hit a login wall on first launch and need
 a real authenticated account per role, so the screenshots are cropped out of the
