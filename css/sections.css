@@ -120,90 +120,93 @@
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 22%, transparent);
 }
 
-/* --- the stack ----------------------------------------------------------
-   Draws the headline's claim rather than restating it: four layers, one
-   developer owning all of them. Built in HTML rather than SVG so the text
-   stays selectable and needs no viewBox maths to survive a phone. Also sets
-   no numeral at display size — see the note in the git history about why big
-   numbers were hurting this hero. */
+/* --- tech row -----------------------------------------------------------
+   Replaced the four-layer "stack" diagram that used to sit here. Everything it
+   spelled out — Mobile / Backend / Data / Integrations and their technologies —
+   is listed in full in the Skills section, so this says the same thing faster:
+   the marks themselves, in colour, at a glance.
 
-.stack {
+   The logos ARE the content here (unlike in the old stack, where the row text
+   named each one), so every item carries a visually-hidden name. The svg stays
+   aria-hidden and the name sits beside it. */
+
+.techrow {
+  list-style: none;
   margin: var(--sp-8) 0 0;
-  display: grid;
-  gap: var(--sp-4);
-  align-items: center;
-  grid-template-columns: minmax(0, 1fr);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
 }
+.techrow__item { display: flex; position: relative; }
 
-.stack__layers {
-  display: grid;
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  overflow: hidden;
-}
-.stack__layers li {
-  display: grid;
-  gap: var(--sp-1);
-  padding: var(--sp-4) var(--sp-5);
-  border-top: 1px solid var(--border);
-}
-.stack__layers li:first-child { border-top: 0; }
-
-/* Small steps down the surface ramp so the block reads as depth rather than as
-   four differently coloured boxes. */
-.stack__layers li:nth-child(1) { background: var(--surface); }
-.stack__layers li:nth-child(2) { background: color-mix(in srgb, var(--surface) 60%, var(--surface-2)); }
-.stack__layers li:nth-child(3) { background: color-mix(in srgb, var(--surface-2) 70%, var(--surface-3)); }
-.stack__layers li:nth-child(4) { background: var(--surface-3); }
-
-.stack__label {
-  font-family: var(--font-mono);
-  font-size: var(--fs-mono);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-  color: var(--accent);
-}
-.stack__tech {
-  font-size: var(--fs-sm);
-  color: var(--text);
-  text-wrap: pretty;
-}
-
-/* Caption sits below on a phone; the brace only appears when there is room. */
-.stack__brace { display: none; }
-.stack__note {
+/* The hint. Kept at opacity 0 rather than `visibility: hidden` or `display:
+   none`, because the name is also the logo's only text alternative — at zero
+   opacity it still reaches a screen reader, at `hidden` it would not. No
+   `title` attribute as well, or the browser would draw its own tooltip on top
+   of this one. */
+.techrow__name {
+  position: absolute;
+  bottom: calc(100% + var(--sp-2));
+  left: 50%;
+  translate: -50% 4px;
+  z-index: 2;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--r-sm);
+  background: var(--text);
+  color: var(--bg);
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
-  line-height: var(--lh-snug);
-  color: var(--text-muted);
-  text-align: left;
+  line-height: 1.3;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease), translate var(--dur-fast) var(--ease);
 }
-.stack__note br { display: none; }
+/* Only where there is a pointer to hover with. On a touch screen the hint can
+   never be summoned, so showing it would just be a box that never appears —
+   the name stays in the accessibility tree either way. This is also what keeps
+   a hint from reaching past a phone's screen edge: on desktop the overhang
+   (11px on the leftmost logo, 19px on the widest name) lands inside the
+   container's own side padding, so nothing clips it and nothing scrolls. */
+@media (hover: hover) {
+  .techrow__item:hover .techrow__name,
+  .techrow__item:focus-within .techrow__name {
+    opacity: 1;
+    translate: -50% 0;
+  }
+}
 
-@media (min-width: 900px) {
-  .stack {
-    /* No column gap: the brace must touch the stack edge to read as a brace
-       rather than as a stray rectangle beside it. The caption pads itself. */
-    grid-template-columns: minmax(0, 680px) 18px auto;
-    gap: 0;
-  }
-  .stack__layers li {
-    grid-template-columns: 9.5rem minmax(0, 1fr);
-    gap: var(--sp-5);
-    align-items: baseline;
-    padding: var(--sp-4) var(--sp-6);
-  }
-  /* The brace: a bordered box with its left side removed. The caption beside
-     it stays horizontal — rotated text would be harder to read, not smarter. */
-  .stack__brace {
-    display: block;
-    align-self: stretch;
-    border: 1px solid var(--border-strong);
-    border-left: 0;
-    border-radius: 0 var(--r-md) var(--r-md) 0;
-  }
-  .stack__note { padding-left: var(--sp-4); }
-  .stack__note br { display: inline; }
+/* Brand colour comes in per item as an inline --brand: a fact about the mark
+   rather than a design choice, like the traffic-light dots in components.css.
+   The two black marks (Apple, Next.js) are given var(--text) instead of
+   #000000, so they invert with the theme rather than disappearing on dark. */
+.techrow__logo {
+  display: grid; place-items: center;
+  width: 64px; height: 64px;
+  border-radius: var(--r-full);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--brand, var(--accent));
+  transition: border-color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+/* Several of these brands are near-black by design — SQLite #003B57, Flutter
+   #02569B — and would all but vanish against the dark background. Lift them
+   toward white on the dark theme: the hue still identifies the mark, which is
+   the whole job of the colour. (Dark is the absence of the light attribute,
+   matching tokens.css.) */
+:root:not([data-theme="light"]) .techrow__logo {
+  color: color-mix(in srgb, var(--brand, var(--accent)) 62%, #fff);
+}
+.techrow__item:hover .techrow__logo {
+  border-color: currentColor;
+  transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .techrow__logo { transition: border-color var(--dur-fast) var(--ease); }
+  .techrow__item:hover .techrow__logo { transform: none; }
+  .techrow__name { transition: opacity var(--dur-fast) var(--ease); translate: -50% 0; }
 }
 
 @media (min-width: 900px) {
