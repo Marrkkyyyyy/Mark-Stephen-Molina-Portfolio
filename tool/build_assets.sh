@@ -79,7 +79,6 @@ CERTS=(
   "SKMBT_36324052807200_0006.jpg|seminar-python-programming-2023"
   "SKMBT_36324052807200_0007.jpg|seminar-web-development-2023"
   "SKMBT_36324052807200_0008.jpg|seminar-leadership-strategic-planning-2023"
-  "SKMBT_36324052807200_0009.jpg|seminar-mobile-computing-2023"
   "SKMBT_36324052807200_0001.jpg|hackathon-2023-appreciation"
   "2024-05-28 133345.png|psits-12th-convention-innotech-2024"
   "Slide3.PNG|seminar-ai-in-education-2023"

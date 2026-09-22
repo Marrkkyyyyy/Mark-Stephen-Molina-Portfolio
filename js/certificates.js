@@ -85,13 +85,6 @@ export const CERTIFICATES = [
     "detail": ""
   },
   {
-    "slug": "seminar-mobile-computing-2023",
-    "title": "Hackathon 2023 — Mobile Computing",
-    "issuer": "SEAIT — College of ICT",
-    "date": "March 2023",
-    "detail": ""
-  },
-  {
     "slug": "hackathon-2023-appreciation",
     "title": "Hackathon 2023 — Appreciation",
     "issuer": "SEAIT — College of ICT",

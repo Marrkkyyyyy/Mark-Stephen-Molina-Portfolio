@@ -53,8 +53,6 @@ const CERTS = [
     title:'Web Development from Scratch', issuer:'SEAIT — College of ICT', date:'June 2023' },
   { tier:'rest', slug:'seminar-leadership-strategic-planning-2023',
     title:'Leadership Skills &amp; Strategic Planning', issuer:'SEAIT Supreme Student Council', date:'March 2023' },
-  { tier:'rest', slug:'seminar-mobile-computing-2023',
-    title:'Hackathon 2023 — Mobile Computing', issuer:'SEAIT — College of ICT', date:'March 2023' },
   { tier:'rest', slug:'hackathon-2023-appreciation',
     title:'Hackathon 2023 — Appreciation', issuer:'SEAIT — College of ICT', date:'March 2023' },
   { tier:'rest', slug:'seminar-ai-in-education-2023',
