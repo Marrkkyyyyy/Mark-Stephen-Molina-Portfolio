@@ -412,10 +412,12 @@
 
 /* --- architecture diagram ---------------------------------------------- */
 
-/* The SVG is authored at a 360-unit viewBox so that at phone width one SVG
-   unit is roughly one CSS pixel — which is what keeps the 11px labels legible
-   there. On desktop the whole thing scales up. Every colour resolves to a
-   token, so the diagram follows the theme toggle like the rest of the page. */
+/* Authored at a 1000-unit viewBox and laid out wide, so the four app boxes get
+   226 units each instead of 109. That trades away phone legibility — 1000 units
+   squeezed into 390px would render the labels at 5px — so .diagram__scroll gives
+   it a floor of 860px and lets it scroll horizontally instead, the same
+   treatment a wide table gets. Every colour resolves to a token, so it still
+   follows the theme toggle. */
 
 .diagram {
   display: grid;
@@ -446,11 +448,6 @@
   font-size: 12.2px;
   fill: var(--text-muted);
 }
-.dg-edge-label {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  fill: var(--text-subtle);
-}
 
 .dg-app rect {
   fill: var(--accent-wash);
@@ -469,17 +466,15 @@
 .dg-node rect { fill: var(--surface); stroke: var(--border); stroke-width: 1; }
 .dg-node .dg-tick { stroke: none; fill: var(--accent); }
 
-.dg-node--pos .dg-tick { fill: var(--accent); }
-.dg-node--pay .dg-tick { fill: var(--violet); }
-.dg-node--map .dg-tick { fill: var(--green); }
-.dg-node--ml  .dg-tick { fill: var(--gold); }
+/* One colour. POS, Stripe, Maps and ML Kit are not categorically different, so
+   four hues with no key said nothing and looked like it meant something. */
 
 .dg-edge {
   fill: none;
-  stroke: var(--border-strong);
+  stroke: color-mix(in srgb, var(--accent) 55%, var(--text-subtle));
   stroke-width: 1.5;
 }
-.dg-arrowhead { fill: var(--border-strong); }
+.dg-arrowhead { fill: color-mix(in srgb, var(--accent) 55%, var(--text-subtle)); }
 
 /* --- diagram entrance --------------------------------------------------
    Keyed off the .is-visible class that reveal.js already puts on the parent
@@ -491,8 +486,7 @@
   .js-reveal .reveal .diagram .dg-app,
   .js-reveal .reveal .diagram .dg-node,
   .js-reveal .reveal .diagram .dg-plane,
-  .js-reveal .reveal .diagram .dg-band,
-  .js-reveal .reveal .diagram .dg-edge-label { opacity: 0; }
+  .js-reveal .reveal .diagram .dg-band { opacity: 0; }
 
   .js-reveal .reveal .diagram .dg-edge {
     stroke-dasharray: 32;
@@ -506,10 +500,6 @@
   .reveal.is-visible .diagram .dg-node,
   .reveal.is-visible .diagram .dg-plane,
   .reveal.is-visible .diagram .dg-band,
-  .reveal.is-visible .diagram .dg-edge-label {
-    opacity: 1;
-    animation: dg-in 520ms var(--ease) both;
-  }
   .reveal.is-visible .diagram .dg-edge {
     opacity: 1;
     stroke-dashoffset: 0;
@@ -518,17 +508,21 @@
 
   /* Top to bottom, following how the system actually flows. */
   .reveal.is-visible .diagram .dg-band                { animation-delay: 60ms; }
-  .reveal.is-visible .diagram .dg-app:nth-of-type(1)  { animation-delay: 100ms; }
-  .reveal.is-visible .diagram .dg-app:nth-of-type(2)  { animation-delay: 160ms; }
-  .reveal.is-visible .diagram .dg-app:nth-of-type(3)  { animation-delay: 220ms; }
+  /* --dg-i comes from a style attribute on each group. It used to be derived
+     with :nth-of-type, which counts every sibling <g> in the SVG rather than
+     only the matching class — so the fourth app box got no delay and animated
+     first, and later the whole integration row shared one delay. */
+  .reveal.is-visible .diagram .dg-app {
+    animation-delay: calc(100ms + (var(--dg-i, 0) * 60ms));
+  }
   .reveal.is-visible .diagram .dg-edge               { animation-delay: 300ms; }
-  .reveal.is-visible .diagram .dg-edge-label         { animation-delay: 420ms; }
   .reveal.is-visible .diagram .dg-plane              { animation-delay: 380ms; }
   .reveal.is-visible .diagram .dg-node               { animation-delay: 440ms; }
-  .reveal.is-visible .diagram .dg-node--pos          { animation-delay: 620ms; }
-  .reveal.is-visible .diagram .dg-node--pay          { animation-delay: 680ms; }
-  .reveal.is-visible .diagram .dg-node--map          { animation-delay: 740ms; }
-  .reveal.is-visible .diagram .dg-node--ml           { animation-delay: 800ms; }
+
+  /* the integration row last, same pattern */
+  .reveal.is-visible .diagram .dg-out {
+    animation-delay: calc(560ms + (var(--dg-i, 0) * 60ms));
+  }
 }
 
 @keyframes dg-in {
@@ -540,13 +534,9 @@
   to   { stroke-dashoffset: 0;  opacity: 1; }
 }
 
-/* Desktop: the diagram column tracks alongside the scrolling case-study text. */
-@media (min-width: 1024px) {
-  .case__media:has(.diagram) {
-    position: sticky;
-    top: calc(var(--header-h) + var(--sp-5));
-  }
-}
+/* The sticky .case__media:has(.diagram) rule lived here. The diagram has its
+   own band now, so the selector never matches — and it was already doing
+   nothing, with 48px of travel in a 1,346px case study. */
 
 /* --- grain -------------------------------------------------------------- */
 

@@ -936,3 +936,30 @@
 }
 .hero__app b { font-weight: 600; color: var(--text-muted); }
 .hero__live a { font-size: var(--fs-xs); }
+
+/* ------------------------------------------------- architecture band
+   The diagram used to sit under the phone rail in the case study's media
+   column — 1,298px of column against 524px of text, so it left 774px of dead
+   space beside it and the reader met two unrelated artifacts stacked with only
+   a gap between them. It gets its own full-width row now. */
+
+.dgband { margin-top: var(--sp-9); }
+
+.dgband__title {
+  margin: 0 0 var(--sp-5);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+/* 1000 viewBox units squeezed into a 390px phone would render the labels at
+   5px, so the diagram keeps a floor and scrolls instead — the same treatment a
+   wide table gets. The page itself never scrolls sideways. */
+.diagram__scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: var(--sp-2);
+}
+.diagram__scroll > svg { min-width: 860px; }
