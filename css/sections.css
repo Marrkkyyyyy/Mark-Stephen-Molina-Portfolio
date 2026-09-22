@@ -823,7 +823,6 @@
 
 /* Only the Cum Laude row has a scan behind it; justify-self keeps the button
    its own width rather than stretching across the grid row. */
-.grad__cert { justify-self: start; margin-top: var(--sp-2); }
 
 /* ------------------------------------------------------- feature award card
    One award in the grid carries a photograph: the HACKFORGOV plaque, where the
