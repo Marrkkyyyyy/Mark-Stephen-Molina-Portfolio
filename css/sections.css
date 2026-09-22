@@ -633,13 +633,23 @@
 /* The single most persuasive thing on the page: four shipped apps a reader can
    open in the store right now. Kept quiet typographically so it reads as
    evidence rather than as advertising. */
+/* Four apps in a wrapping flex row broke 2 + 2 with nothing lining up: the
+   second line started under the LIVE label, and no two app names shared a left
+   edge. A grid instead — the label holds its own column across both rows, and
+   `max-content` columns make every name in a column start at the same x. */
 .hero__live {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: max-content;
+  gap: var(--sp-2) var(--sp-6);
   align-items: baseline;
-  gap: var(--sp-2) var(--sp-4);
   margin-top: var(--sp-6);
   font-size: var(--fs-sm);
+}
+@media (min-width: 680px) {
+  .hero__live {
+    grid-template-columns: max-content repeat(2, max-content);
+  }
+  .hero__live-label { grid-row: 1 / span 2; }
 }
 .hero__live-label {
   font-family: var(--font-mono);
@@ -943,7 +953,10 @@
   gap: var(--sp-2);
   white-space: nowrap;
 }
-.hero__app b { font-weight: 600; color: var(--text-muted); }
+/* A floor under the name so the two store links start at the same x on both
+   rows of a column — "Hey JAG" and "JAG Merchant" differ by about 40px, which
+   was enough to make the block look untidy. */
+.hero__app b { font-weight: 600; color: var(--text-muted); min-width: 6.75rem; }
 .hero__live a { font-size: var(--fs-xs); }
 
 /* ------------------------------------------------- architecture band
