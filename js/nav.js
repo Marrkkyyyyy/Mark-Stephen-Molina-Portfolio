@@ -59,16 +59,19 @@ export function initNav() {
     marker.style.transform = `translateX(${link.parentElement.offsetLeft}px)`;
   };
 
-  /* The current section is the LAST one whose top has passed a reading line
-     just under the header. The old rule — "topmost section still inside a
-     band near the top" — lost to the previous section whenever a few pixels
-     of it were still in the band, which is exactly where a nav click lands:
-     clicking Work highlighted Experience, clicking Credentials left Skills.
-     At the very bottom of the page the last section wins, since a short
-     final section can never scroll its top up to the line. */
+  /* The current section is the LAST one whose top has passed a line halfway
+     down the screen, i.e. whichever section owns most of what you see. The
+     old rule ("topmost section still inside a band near the top") lost to the
+     previous section whenever a few pixels of it were left in the band, which
+     is exactly where a nav click lands. At the very bottom of the page the
+     last section wins, since a short final section can never reach the line. */
   let current = null;
   const mark = () => {
-    const line = (document.querySelector('.site-header')?.offsetHeight || 64) + 40;
+    // Halfway down the screen, not just under the header: each
+    // section starts with ~90px of space above its label, so a line near the
+    // header left the previous section active while only the new one showed.
+    const header = document.querySelector('.site-header')?.offsetHeight || 64;
+    const line = Math.max(header + 40, innerHeight * 0.5);
     let best = null;
     for (const el of sections) {
       if (el.getBoundingClientRect().top <= line) best = el;
