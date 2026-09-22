@@ -330,6 +330,13 @@
 .case__head { display: grid; gap: var(--sp-3); }
 .case__title { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); }
 .case__title h3 { margin: 0; }
+/* The client's own app icon, shaped like one: an iOS-style rounded square. */
+.case__logo {
+  width: 64px; height: 64px;
+  border-radius: 22%;
+  box-shadow: var(--shadow-md);
+  flex: none;
+}
 .case__tagline { color: var(--text-muted); font-size: var(--fs-lead); max-width: 52ch; }
 
 .case__meta {
