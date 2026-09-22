@@ -41,7 +41,7 @@ export function initNav() {
     .map((a) => document.querySelector(a.getAttribute('href')))
     .filter((el, i, arr) => el && arr.indexOf(el) === i);
 
-  if (!sections.length || !('IntersectionObserver' in window)) return;
+  if (!sections.length) return;
 
   const marker = document.getElementById('navMarker');
 
@@ -59,38 +59,44 @@ export function initNav() {
     marker.style.transform = `translateX(${link.parentElement.offsetLeft}px)`;
   };
 
-  const visible = new Set();
+  /* The current section is the LAST one whose top has passed a reading line
+     just under the header. The old rule — "topmost section still inside a
+     band near the top" — lost to the previous section whenever a few pixels
+     of it were still in the band, which is exactly where a nav click lands:
+     clicking Work highlighted Experience, clicking Credentials left Skills.
+     At the very bottom of the page the last section wins, since a short
+     final section can never scroll its top up to the line. */
+  let current = null;
   const mark = () => {
-    // The topmost section currently on screen wins.
+    const line = (document.querySelector('.site-header')?.offsetHeight || 64) + 40;
     let best = null;
-    for (const el of visible) {
-      if (!best || el.offsetTop < best.offsetTop) best = el;
+    for (const el of sections) {
+      if (el.getBoundingClientRect().top <= line) best = el;
     }
+    const doc = document.documentElement;
+    if (scrollY + innerHeight >= doc.scrollHeight - 2) best = sections[sections.length - 1];
+    if (best === current) return;
+    current = best;
     const id = best?.id;
-    let current = null;
+    let link = null;
     for (const a of links) {
-      const on = id && a.getAttribute('href') === `#${id}`;
-      if (on) {
+      if (id && a.getAttribute('href') === `#${id}`) {
         a.setAttribute('aria-current', 'true');
-        if (a.classList.contains('nav__link')) current = a;
+        if (a.classList.contains('nav__link')) link = a;
       } else {
         a.removeAttribute('aria-current');
       }
     }
-    moveMarker(current);
+    moveMarker(link);
   };
 
   addEventListener('resize', () => {
-    moveMarker(document.querySelector('.nav__link[aria-current="true"]'));
+    current = null;
+    mark();
   });
 
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) visible.add(e.target);
-      else visible.delete(e.target);
-    }
-    mark();
-  }, { rootMargin: '-72px 0px -55% 0px', threshold: 0 });
-
-  sections.forEach((s) => io.observe(s));
+  // Seven getBoundingClientRect calls per scroll event — cheap enough to run
+  // directly, and it keeps working in tabs where rAF is throttled.
+  addEventListener('scroll', mark, { passive: true });
+  mark();
 }
