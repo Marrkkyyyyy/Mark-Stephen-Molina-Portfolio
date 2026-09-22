@@ -408,8 +408,14 @@
   .case__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: var(--sp-9); }
   .case--reverse .case__media { order: -1; }
   .case.is-textonly .case__grid { grid-template-columns: 1fr; }
-  .case.is-textonly .case__points { columns: 2; column-gap: var(--sp-7); }
-  .case.is-textonly .case__points li { break-inside: avoid; margin-bottom: var(--sp-3); }
+  /* Grid columns, not CSS multicol: .case__points is display:grid, and a grid
+     container ignores the columns property outright. Every "two column"
+     bullet rule on this page was a no-op until now, which is part of why
+     the text-only case studies read as airy. */
+  .case.is-textonly .case__points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--sp-7);
+  }
 }
 
 /* --- other projects ---------------------------------------------------- */
@@ -963,3 +969,53 @@
   padding-bottom: var(--sp-2);
 }
 .diagram__scroll > svg { min-width: 860px; }
+
+/* ------------------------------------------------- stacked case studies
+   The two-column shape put a 483px media column beside a 523px text column in
+   a 1200px page: 774px of dead space, and only 2 of the 10 customer phones
+   visible at rest. Bands instead — a wide intro, the screenshots at full
+   width, then the detail. */
+
+.case--stacked .case__head { display: grid; gap: var(--sp-3); }
+.case--stacked .case__tabs-label { margin: var(--sp-7) 0 var(--sp-2); }
+.case--stacked .case__media { margin-top: var(--sp-4); }
+.case--stacked .case__detail { margin-top: var(--sp-6); display: grid; gap: var(--sp-5); }
+
+/* A desktop screenshot at the full 1200 would be 750px tall at 16:10. */
+.case--stacked .gallery[data-kind="desktop"] { max-width: 900px; }
+
+@media (min-width: 900px) {
+  /* meta pinned right, on the same rows as the title and tagline */
+  .case--stacked .case__head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--sp-8);
+    align-items: start;
+  }
+  .case--stacked .case__index,
+  .case--stacked .case__title,
+  .case--stacked .case__tagline { grid-column: 1; }
+  .case--stacked .case__tagline { max-width: 54ch; }
+  .case--stacked .case__meta {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  /* bullets and chips share a row rather than stacking */
+  .case--stacked .case__detail {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--sp-9);
+    align-items: start;
+  }
+  .case--stacked .case__points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--sp-7);
+  }
+  .case--stacked .case__detail .cluster {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: 18rem;
+    justify-content: flex-end;
+  }
+}
