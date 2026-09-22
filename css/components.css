@@ -558,7 +558,8 @@ body::after {
 /* A desktop screenshot is unreadable at column width, so the window opens in
    the shared image viewer. Sized to fill .window__body so the existing
    `.window__body img { height: 100% }` still resolves. */
-.window__open {
+.window__open,
+.phone__open {
   display: block;
   width: 100%;
   height: 100%;
