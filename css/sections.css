@@ -378,6 +378,11 @@
 .case__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-6); }
 
 /* gallery: a rail of phones, or a single desktop window */
+/* The media column can hold a gallery AND the architecture diagram. Until now
+   only one of the two ever rendered, so nothing separated them and the
+   gallery caption sat on top of the diagram's first label. */
+.case__media { display: grid; gap: var(--sp-8); align-content: start; }
+
 .gallery { display: grid; gap: var(--sp-4); }
 .gallery__rail {
   display: flex;

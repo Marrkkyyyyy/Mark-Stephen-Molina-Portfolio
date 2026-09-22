@@ -386,7 +386,7 @@
   <div class="container">
     <div class="section__head reveal">
       <p class="section__num"><b>03</b> <span>Selected work</span></p>
-      <h2 id="work-h">Three systems worth explaining</h2>
+      <h2 id="work-h">Four systems worth explaining</h2>
     </div>
 
     <!-- ---------- HeyJag ---------- -->
@@ -458,22 +458,22 @@
           <div class="gallery" data-gallery="heyjag_customer" data-panel="panel-customer">
             <div class="gallery__rail">
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
-                <img data-src="assets/screenshots/heyjag_customer/01_home.webp" alt="HeyJag customer app — home"></div></figure>
+                <img data-src="assets/screenshots/heyjag_customer/01_explore.webp" alt="HeyJag customer app — Explore Nearby, vendors and drivers on a live map"></div></figure>
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
-                <img data-src="assets/screenshots/heyjag_customer/02_order_tracking.webp" alt="HeyJag customer app — live order tracking"></div></figure>
+                <img data-src="assets/screenshots/heyjag_customer/02_food.webp" alt="HeyJag customer app — JAG Food, restaurants and deals"></div></figure>
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
-                <img data-src="assets/screenshots/heyjag_customer/03_checkout.webp" alt="HeyJag customer app — checkout"></div></figure>
+                <img data-src="assets/screenshots/heyjag_customer/03_services.webp" alt="HeyJag customer app — on-demand services with prices"></div></figure>
             </div>
             <p class="gallery__caption">Customer super-app</p>
           </div>
           <div class="gallery" data-gallery="heyjag_merchant" data-panel="panel-merchant" hidden>
             <div class="gallery__rail">
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
-                <img data-src="assets/screenshots/heyjag_merchant/01_dashboard.webp" alt="HeyJag merchant app — dashboard"></div></figure>
+                <img data-src="assets/screenshots/heyjag_merchant/01_dashboard.webp" alt="JAG Merchant app — today’s performance and order status"></div></figure>
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
-                <img data-src="assets/screenshots/heyjag_merchant/02_orders.webp" alt="HeyJag merchant app — orders"></div></figure>
+                <img data-src="assets/screenshots/heyjag_merchant/02_menu.webp" alt="JAG Merchant app — menu management, items and availability"></div></figure>
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
-                <img data-src="assets/screenshots/heyjag_merchant/03_analytics.webp" alt="HeyJag merchant app — analytics"></div></figure>
+                <img data-src="assets/screenshots/heyjag_merchant/03_financials.webp" alt="JAG Merchant app — financials, net earnings and recent payouts"></div></figure>
             </div>
             <p class="gallery__caption">Merchant dashboard</p>
           </div>
@@ -482,7 +482,7 @@
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
                 <img data-src="assets/screenshots/heyjag_provider/01_bookings.webp" alt="JAG Provider app — bookings"></div></figure>
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
-                <img data-src="assets/screenshots/heyjag_provider/02_availability.webp" alt="JAG Provider app — availability"></div></figure>
+                <img data-src="assets/screenshots/heyjag_provider/02_workers.webp" alt="JAG Provider app — job location and assigned workers"></div></figure>
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
                 <img data-src="assets/screenshots/heyjag_provider/03_team.webp" alt="JAG Provider app — team"></div></figure>
             </div>
@@ -491,7 +491,7 @@
           <div class="gallery" data-gallery="heyjag_driver" data-panel="panel-driver" hidden>
             <div class="gallery__rail">
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
-                <img data-src="assets/screenshots/heyjag_driver/01_kyc.webp" alt="HeyJag driver app — KYC onboarding"></div></figure>
+                <img data-src="assets/screenshots/heyjag_driver/01_kyc.webp" alt="JAG Driver app — onboarding: personal details, vehicle, licence and profile photo"></div></figure>
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
                 <img data-src="assets/screenshots/heyjag_driver/02_active_delivery.webp" alt="HeyJag driver app — active delivery"></div></figure>
               <figure class="phone"><div class="phone__screen"><span class="phone__notch"></span>
@@ -596,12 +596,69 @@
       </div>
     </article>
 
-    <!-- ---------- Fuzion+ ---------- -->
-    <article class="case case--reverse is-textonly reveal" id="case-fuzion" data-case>
+    <!-- ---------- Tropiland OS ---------- -->
+    <article class="case case--reverse is-textonly reveal" id="case-tropiland" data-case>
       <div class="case__grid">
         <div class="case__body">
           <header class="case__head">
-            <span class="case__index"><b>02</b> / Desktop · native platform channels</span>
+            <span class="case__index"><b>02</b> / Quarry ERP</span>
+            <div class="case__title">
+              <h3>Tropiland OS</h3>
+            </div>
+            <p class="case__tagline">
+              Purchase orders, delivery receipts and statements of account for a multi-site
+              quarry operation.
+            </p>
+            <p class="case__meta">
+              <span><b>Client</b> Tropiland Aggregates</span>
+              <span><b>Period</b> Mar 2026 — Present</span>
+            </p>
+          </header>
+
+          <ul class="case__points">
+            <li>Domain layer where <strong>no transaction can cross quarries</strong>, covered by 76 tests</li>
+            <li>Statements of account built from delivery receipts, with a print view</li>
+            <li>Multi-tenant routing on a <strong>[quarry] segment</strong>, access resolved per user</li>
+          </ul>
+
+          <div class="cluster" style="margin-top:var(--sp-6)">
+            <span class="chip">Next.js</span><span class="chip">TypeScript</span>
+            <span class="chip">React</span><span class="chip">Zod</span>
+            <span class="chip">TanStack Table</span><span class="chip">Zustand</span>
+          </div>
+        </div>
+
+        <div class="case__media">
+          <div class="gallery" data-gallery="tropiland" data-kind="desktop">
+            <figure class="window">
+              <div class="window__bar" aria-hidden="true">
+                <span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span>
+                <span class="window__title">Tropiland OS</span>
+              </div>
+              <div class="window__body">
+                <button class="window__open" type="button"
+                        data-photo="assets/screenshots/tropiland/full/01_dashboard.webp"
+                        data-photo-set="tropiland"
+                        data-photo-title="Tropiland OS — quarry dashboard"
+                        data-photo-meta="Delivered volume, sales by product and the purchase order still running"
+                        aria-label="View the dashboard full size">
+                  <img data-src="assets/screenshots/tropiland/01_dashboard.webp"
+                       alt="Tropiland OS quarry dashboard — delivered cubic metres, amount not yet on a statement, a purchase order progress bar, sales by product and a twelve-month chart">
+                </button>
+              </div>
+            </figure>
+            <p class="gallery__caption">Next.js · TypeScript · 76 tests on the domain layer</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---------- Fuzion+ ---------- -->
+    <article class="case is-textonly reveal" id="case-fuzion" data-case>
+      <div class="case__grid">
+        <div class="case__body">
+          <header class="case__head">
+            <span class="case__index"><b>03</b> / Desktop · native platform channels</span>
             <div class="case__title">
               <h3>Fuzion+</h3>
             </div>
@@ -645,11 +702,11 @@
     </article>
 
     <!-- ---------- FarmFinds ---------- -->
-    <article class="case is-textonly reveal" id="case-farmfinds" data-case>
+    <article class="case case--reverse is-textonly reveal" id="case-farmfinds" data-case>
       <div class="case__grid">
         <div class="case__body">
           <header class="case__head">
-            <span class="case__index"><b>03</b> / Award-winning e-commerce</span>
+            <span class="case__index"><b>04</b> / Award-winning e-commerce</span>
             <div class="case__title">
               <h3>FarmFinds</h3>
               <button class="chip chip--award" type="button"

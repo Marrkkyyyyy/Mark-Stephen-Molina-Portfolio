@@ -81,6 +81,12 @@ button { background: none; border: 0; cursor: pointer; }
 
 /* --- helpers ---------------------------------------------------------- */
 
+/* Any class that sets `display` outranks the user-agent's [hidden] rule, so
+   an element can be hidden in the DOM and still painted. That bit the nav
+   panel once and the project tab galleries again — one global rule rather
+   than a per-component patch each time. */
+[hidden] { display: none !important; }
+
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
   width: 1px; height: 1px;

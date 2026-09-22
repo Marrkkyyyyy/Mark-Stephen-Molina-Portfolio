@@ -120,7 +120,6 @@
   transform-origin: top;
   animation: panel-in var(--dur) var(--ease);
 }
-.nav-panel[hidden] { display: none; }
 @keyframes panel-in {
   from { opacity: 0; transform: translateY(-8px); }
   to   { opacity: 1; transform: none; }
@@ -565,3 +564,16 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 :root[data-theme="light"] body::after { opacity: 0.02; }
+
+/* A desktop screenshot is unreadable at column width, so the window opens in
+   the shared image viewer. Sized to fill .window__body so the existing
+   `.window__body img { height: 100% }` still resolves. */
+.window__open {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
