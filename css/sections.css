@@ -221,22 +221,6 @@
 .about__body p { color: var(--text-muted); max-width: var(--prose); }
 .about__body strong { color: var(--text); font-weight: 600; }
 
-.pullquote {
-  margin-top: var(--sp-2);
-  padding: var(--sp-5);
-  border-radius: var(--r-md);
-  border-left: 2px solid var(--accent);
-  background: var(--accent-wash);
-}
-.pullquote p { color: var(--text); font-size: var(--fs-lead); }
-.pullquote cite {
-  display: block;
-  margin-top: var(--sp-2);
-  font-style: normal;
-  font-size: var(--fs-xs);
-  color: var(--text-muted);
-}
-
 .facts { display: grid; gap: 0; }
 .facts div {
   display: grid;
