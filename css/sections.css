@@ -217,44 +217,6 @@
 /* --- about ------------------------------------------------------------- */
 
 .about__grid { display: grid; gap: var(--sp-7); align-items: start; }
-.about__body { display: grid; gap: var(--sp-4); }
-.about__body p { color: var(--text-muted); max-width: var(--prose); }
-.about__body strong { color: var(--text); font-weight: 600; }
-
-/* Three lines instead of three sentences. The section used to open with a
-   paragraph naming all of this in prose, which is the kind of block a reader
-   skips — the icon and the bold label give it somewhere to land first. */
-.traits {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: var(--sp-5);
-}
-.traits li {
-  display: grid;
-  grid-template-columns: 34px minmax(0, 1fr);
-  column-gap: var(--sp-4);
-  align-items: baseline;
-}
-/* Same badge as .mini__icon; kept under its own name rather than reaching into
-   another component's namespace. */
-.trait__icon {
-  display: grid; place-items: center;
-  width: 34px; height: 34px;
-  border-radius: var(--r-sm);
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  color: var(--accent);
-  grid-row: 1 / span 2;
-  align-self: start;
-}
-.trait__icon svg { width: 17px; height: 17px; }
-.traits b { color: var(--text); font-weight: 600; }
-.traits li > span:last-child {
-  color: var(--text-muted);
-  font-size: var(--fs-sm);
-}
 
 .facts { display: grid; gap: 0; }
 .facts div {
@@ -269,8 +231,12 @@
 .facts dt { color: var(--text-subtle); font-family: var(--font-mono); font-size: var(--fs-mono); }
 .facts dd { margin: 0; color: var(--text); }
 
-@media (min-width: 900px) {
-  .about__grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--sp-9); }
+/* Six facts in two columns from 700px. A single full-width column would drag
+   each value across the whole page away from its own label. */
+@media (min-width: 700px) {
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sp-9); }
+  /* Bottom row: items 5 and 6 of six. Their rule would be the card's own edge. */
+  .facts div:nth-last-child(-n+2) { border-bottom: 0; }
 }
 
 /* --- experience timeline ----------------------------------------------- */
