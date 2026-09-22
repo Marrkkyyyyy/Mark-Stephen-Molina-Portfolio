@@ -409,7 +409,8 @@
             </p>
           </header>
 
-          <div class="tabs" role="tablist" aria-label="HeyJag applications">
+          <p class="case__tabs-label" id="heyjag-tabs-label">What each app does</p>
+          <div class="tabs" role="tablist" aria-labelledby="heyjag-tabs-label">
             <button class="tab" role="tab" id="tab-customer" aria-controls="panel-customer" aria-selected="true">Customer</button>
             <button class="tab" role="tab" id="tab-merchant" aria-controls="panel-merchant" aria-selected="false" tabindex="-1">Merchant</button>
             <button class="tab" role="tab" id="tab-driver"   aria-controls="panel-driver"   aria-selected="false" tabindex="-1">Driver</button>
@@ -420,8 +421,7 @@
             <ul class="case__points">
               <li>Six services in one <strong>super-app</strong></li>
               <li><strong>Real-time order pipeline</strong> across all four apps</li>
-              <li>Live driver tracking and route optimisation</li>
-            </ul>
+              </ul>
           </div>
           <div role="tabpanel" id="panel-merchant" aria-labelledby="tab-merchant" tabindex="0" hidden>
             <ul class="case__points">

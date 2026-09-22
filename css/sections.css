@@ -359,18 +359,19 @@
 .case__points { display: grid; gap: var(--sp-3); margin-top: var(--sp-5); }
 .case__points li {
   position: relative;
-  padding-left: var(--sp-6);
+  padding-left: var(--sp-5);
   font-size: var(--fs-sm);
   color: var(--text-muted);
 }
+/* A dash, matching the timeline. This was a 14px rounded square with a wash
+   and a border — indistinguishable from an unchecked checkbox, which made a
+   list of shipped features read as a list of things still to do. */
 .case__points li::before {
   content: "";
   position: absolute;
-  left: 0; top: 0.45em;
-  width: 14px; height: 14px;
-  border-radius: 4px;
-  background: var(--accent-wash);
-  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  left: 2px; top: 0.62em;
+  width: 6px; height: 1px;
+  background: var(--accent);
 }
 .case__points strong { color: var(--text); font-weight: 600; }
 
@@ -905,4 +906,16 @@
 
 @media (min-width: 768px) {
   .rig { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+}
+
+/* The diagram's top row is also Customer / Merchant / Driver / Provider, so
+   without a label the tab row reads as a second copy of it rather than as a
+   control for the list underneath. */
+.case__tabs-label {
+  margin: var(--sp-5) 0 var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-subtle);
 }
