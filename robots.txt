@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://marrkkyyyyy.github.io/sitemap.xml
+Sitemap: https://marrkkyyyyy.github.io/Mark-Stephen-Molina-Portfolio/sitemap.xml
