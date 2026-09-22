@@ -924,3 +924,15 @@
   text-transform: uppercase;
   color: var(--text-subtle);
 }
+
+/* Each app now carries both stores, so the strip needs a unit per app rather
+   than a flat run of links — otherwise "JAG Driver App Store Google Play
+   JAG Merchant …" reads as one undifferentiated list. */
+.hero__app {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  white-space: nowrap;
+}
+.hero__app b { font-weight: 600; color: var(--text-muted); }
+.hero__live a { font-size: var(--fs-xs); }

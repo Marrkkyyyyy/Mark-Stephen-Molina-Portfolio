@@ -133,3 +133,21 @@ demo data. It does have a login gate, so a headless run has to get past it:
 most impressive screens in that app, but the letterhead carries the client's
 real TeleFax number and a personal email address. Blank those in the demo seed
 and they are safe to add.
+
+## Regenerating the social preview image
+
+`assets/img/og-image.png` had its text baked in and went stale — it said "three-app
+marketplace", listed three client regions, used a headline the site had replaced, and was dark
+after the site switched to opening light. None of that is visible to anyone reading the HTML.
+
+`tool/og-card.html` is now the source. Serve it (so `../css` and `../assets` resolve) and
+capture:
+
+```bash
+chrome --headless=new --user-data-dir=/tmp/ogprof --disable-gpu --hide-scrollbars \
+       --force-device-scale-factor=1 --virtual-time-budget=6000 --window-size=1200,630 \
+       --screenshot=assets/img/og-image.png http://localhost:8347/tool/og-card.html
+```
+
+1200x630 must match `og:image:width`/`og:image:height` in index.html. Redo it after any
+change to the hero headline, the app count or the client list.

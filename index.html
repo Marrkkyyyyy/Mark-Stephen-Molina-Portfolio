@@ -13,7 +13,7 @@
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Mark Stephen Molina">
 <meta property="og:title" content="Mark Stephen Molina — Flutter &amp; Full-Stack Developer">
-<meta property="og:description" content="Production Flutter apps and the serverless backends behind them. Three-app marketplace platform, native platform channels, award-winning e-commerce.">
+<meta property="og:description" content="Production Flutter apps and the serverless backends behind them. Four-app marketplace platform, native platform channels, award-winning e-commerce.">
 <meta property="og:url" content="https://marrkkyyyyy.github.io/Mark-Stephen-Molina-Portfolio/">
 <meta property="og:image" content="https://marrkkyyyyy.github.io/Mark-Stephen-Molina-Portfolio/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -65,6 +65,7 @@
   },
   "knowsAbout": ["Flutter","Dart","Firebase","Cloud Functions","Node.js","Stripe",
     "Google Maps Platform","REST APIs","Serverless Architecture","Cross-platform Development",
+    "Laravel","PHP",
     "Next.js","React","TypeScript"]
 }
 </script>
@@ -177,10 +178,26 @@
 
         <p class="hero__live">
           <span class="hero__live-label">Live</span>
-          <a href="https://apps.apple.com/us/app/hey-jag/id6739027383" target="_blank" rel="noopener">Hey JAG</a>
-          <a href="https://apps.apple.com/us/app/jag-driver/id6739028664" target="_blank" rel="noopener">JAG Driver</a>
-          <a href="https://apps.apple.com/us/app/jag-merchant/id6739029277" target="_blank" rel="noopener">JAG Merchant</a>
-          <a href="https://apps.apple.com/us/app/jag-provider/id6762231255" target="_blank" rel="noopener">JAG Provider</a>
+          <span class="hero__app">
+            <b>Hey JAG</b>
+            <a href="https://apps.apple.com/us/app/hey-jag/id6739027383" target="_blank" rel="noopener">App&nbsp;Store</a>
+            <a href="https://play.google.com/store/apps/details?id=com.heyjag.customer" target="_blank" rel="noopener">Google&nbsp;Play</a>
+          </span>
+          <span class="hero__app">
+            <b>JAG Driver</b>
+            <a href="https://apps.apple.com/us/app/jag-driver/id6739028664" target="_blank" rel="noopener">App&nbsp;Store</a>
+            <a href="https://play.google.com/store/apps/details?id=com.heyjag.drivers" target="_blank" rel="noopener">Google&nbsp;Play</a>
+          </span>
+          <span class="hero__app">
+            <b>JAG Merchant</b>
+            <a href="https://apps.apple.com/us/app/jag-merchant/id6739029277" target="_blank" rel="noopener">App&nbsp;Store</a>
+            <a href="https://play.google.com/store/apps/details?id=com.heyjag.merchants" target="_blank" rel="noopener">Google&nbsp;Play</a>
+          </span>
+          <span class="hero__app">
+            <b>JAG Provider</b>
+            <a href="https://apps.apple.com/us/app/jag-provider/id6762231255" target="_blank" rel="noopener">App&nbsp;Store</a>
+            <a href="https://play.google.com/store/apps/details?id=com.heyjag.providers" target="_blank" rel="noopener">Google&nbsp;Play</a>
+          </span>
         </p>
       </div>
 
@@ -276,7 +293,7 @@
           <h3 class="role__title">Tropiland OS — Full-Stack Developer</h3>
           <span class="role__org">Tropiland Aggregates</span>
         </div>
-        <p class="role__where">Philippines · Remote</p>
+        <p class="role__where">Philippines · Part-time · Remote</p>
         <ul class="role__points">
           <li>Building an <strong>ERP for quarry operations</strong> across multiple sites</li>
           <li>Purchase orders, delivery receipts and statements of account, per quarry</li>
@@ -300,6 +317,7 @@
           <li>Rebuilt an off-the-shelf marketplace platform into <strong>four live apps</strong></li>
           <li>Wrote the merchant app, the provider app and all <strong>105 Cloud Functions</strong> from scratch</li>
           <li>Built POS integrations, Stripe payment holds and a weekly vendor payout ledger</li>
+          <li>Maintain the two <strong>Laravel 10</strong> admin panels behind it — store and super-admin</li>
         </ul>
         <div class="role__tech cluster">
           <span class="chip">Flutter</span><span class="chip">Node.js</span>
@@ -518,8 +536,8 @@
             <svg viewBox="0 0 360 470" role="img" aria-labelledby="dgTitle dgDesc"
                  xmlns="http://www.w3.org/2000/svg">
               <title id="dgTitle">HeyJag system architecture</title>
-              <desc id="dgDesc">Three Flutter apps — Customer, Merchant and Driver — share one
-                real-time Firestore data plane. Over fifteen Cloud Functions handle order
+              <desc id="dgDesc">Four Flutter apps — Customer, Merchant, Driver and Provider —
+                share one real-time Firestore data plane. 105 Cloud Functions handle order
                 assignment with retry logic, scheduled synchronisation and payouts, and connect
                 out to Clover and Toast point-of-sale systems on a thirty minute cycle,
                 Stripe for payment holds and a weekly vendor payout ledger, Google Maps for
@@ -848,7 +866,7 @@
       </div>
       <div>
         <dt>Data</dt>
-        <dd>Firestore · Realtime Database · SQLite · MySQL · MongoDB · Offline storage</dd>
+        <dd>Firestore · Realtime Database · SQLite · MySQL · Offline storage</dd>
       </div>
       <div>
         <dt>Integrations</dt>

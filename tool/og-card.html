@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>og card source</title>
+<!-- Source for assets/img/og-image.png. The old one had its text baked in and
+     went stale: it said "three-app marketplace", listed only three client
+     regions, carried a headline the site no longer uses, and was dark while
+     the site now opens light. Nobody notices, because it is an image.
+
+     Regenerate after any change to the hero:
+       chrome --headless=new --window-size=1200,630 \
+              --force-device-scale-factor=1 --hide-scrollbars \
+              --screenshot=assets/img/og-image.png \
+              http://localhost:8347/tool/og-card.html
+
+     Serve it rather than opening the file directly, so the relative paths to
+     ../css and ../assets resolve. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/tokens.css">
+<style>
+  /* The card is always light, whatever the site's stored theme says. */
+  html { color-scheme: light; }
+  :root {
+    --bg:          #fbfcfd;
+    --surface:     #ffffff;
+    --border:      #dde4ec;
+    --text:        #0e1720;
+    --text-muted:  #4a5a6b;
+    --text-subtle: #6b7a8b;
+    --accent:      #0d7a6f;
+    --green:       #047857;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    align-items: center;
+    gap: 56px;
+    padding: 64px 68px;
+    position: relative;
+  }
+  /* the same faint grid the hero uses, so the card reads as the same site */
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, #0e172008 1px, transparent 1px),
+      linear-gradient(to bottom, #0e172008 1px, transparent 1px);
+    background-size: 72px 72px;
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 62px;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+  }
+  h1 em { display: block; font-style: normal; color: var(--accent); }
+  p {
+    margin-top: 24px;
+    font-size: 21px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    max-width: 30ch;
+  }
+  .live {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+  }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 4px #04785722;
+  }
+  figure { position: relative; justify-self: end; }
+  img {
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+  <div>
+    <p class="eyebrow">Flutter · Full-stack mobile developer</p>
+    <h1>One developer. <em>The whole product.</em></h1>
+    <p>
+      Four live apps in the App&nbsp;Store and Google&nbsp;Play, on one serverless backend.
+      Clients in the US, Australia, Honduras and the Philippines.
+    </p>
+    <p class="live"><span class="dot"></span> Mark Stephen Molina</p>
+  </div>
+
+  <figure>
+    <img src="../assets/img/profile.webp" alt="">
+  </figure>
+
+</body>
+</html>
