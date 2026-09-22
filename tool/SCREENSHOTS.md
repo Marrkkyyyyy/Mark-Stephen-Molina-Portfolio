@@ -12,7 +12,7 @@ assets/screenshots/
 ├── heyjag_merchant/   01_dashboard.webp  02_menu.webp  03_financials.webp
 ├── heyjag_driver/     01_kyc.webp  02_active_delivery.webp  03_earnings.webp
 ├── heyjag_provider/   01_bookings.webp  02_workers.webp  03_team.webp
-├── tropiland/         01_dashboard.webp  +  full/01_dashboard.webp
+├── tropiland/         01_dashboard … 06_products.webp  +  full/
 ├── fuzion_plus/       01_dashboard.webp                    (none yet)
 └── farmfinds/         01_marketplace.webp  02_product.webp  03_cart.webp   (none yet)
 ```
@@ -128,6 +128,13 @@ demo data. It does have a login gate, so a headless run has to get past it:
 3. Same profile, `--window-size=1600,1000 --force-device-scale-factor=2` on
    the target route → a 3200×2000 capture, exactly the 16:10 `.window__body`
    wants.
+
+**Client data is blurred in the page before capture.** The demo seed is the
+client's real records, so the proxy injects a script that wraps the owner's
+name, client company names and addresses, truck plates and every peso amount
+in a `filter: blur(6px)` span (chart axis labels included). Six screens ship:
+dashboard, deliveries, statements, purchase orders, clients, products. Expenses
+was left out because it renders an empty month.
 
 **Not shipped, on purpose:** the statement-of-account and print views are the
 most impressive screens in that app, but the letterhead carries the client's
