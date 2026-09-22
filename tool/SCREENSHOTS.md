@@ -7,7 +7,8 @@ changes, no rebuild — just reload the page.
 
 ```
 assets/screenshots/
-├── heyjag_customer/   01_home  02_restaurant  03_item  04_checkout  05_rides  (.webp)
+├── heyjag_customer/   01_home 02_browse 03_restaurant 04_hours 05_menu
+│                       06_item 07_checkout 08_heroes 09_rides 10_account  (.webp)
 ├── heyjag_merchant/   01_dashboard.webp  02_menu.webp  03_financials.webp
 ├── heyjag_driver/     01_kyc.webp  02_active_delivery.webp  03_earnings.webp
 ├── heyjag_provider/   01_bookings.webp  02_workers.webp  03_team.webp
@@ -63,8 +64,10 @@ cwebp -q 80 -m 6 -resize 1170 0 ~/Desktop/Customer/<shot>.png \
 ```
 
 1206×2622 is 0.4600 against the frame's 0.4615, so `object-fit: cover` trims about 0.3% — no
-crop box needed. Five of them, in journey order: home → restaurant → item → checkout → rides.
-The rail scroll-snaps, so more than three is fine.
+crop box needed. Ten of them, in journey order: home, browse, restaurant, hours, menu, item, checkout,
+Heroes, rides, account. The rail scroll-snaps, so the count is not limited by layout.
+Two of the twelve are left out on purpose — an empty "nothing in progress" activity state
+and the login wall.
 
 **Prefer this route for the other three apps.** Simulator captures beat the App Store crops on
 every axis; the store listings were only used because those apps need an authenticated account
