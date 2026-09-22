@@ -221,6 +221,41 @@
 .about__body p { color: var(--text-muted); max-width: var(--prose); }
 .about__body strong { color: var(--text); font-weight: 600; }
 
+/* Three lines instead of three sentences. The section used to open with a
+   paragraph naming all of this in prose, which is the kind of block a reader
+   skips — the icon and the bold label give it somewhere to land first. */
+.traits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--sp-5);
+}
+.traits li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  column-gap: var(--sp-4);
+  align-items: baseline;
+}
+/* Same badge as .mini__icon; kept under its own name rather than reaching into
+   another component's namespace. */
+.trait__icon {
+  display: grid; place-items: center;
+  width: 34px; height: 34px;
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  grid-row: 1 / span 2;
+  align-self: start;
+}
+.trait__icon svg { width: 17px; height: 17px; }
+.traits b { color: var(--text); font-weight: 600; }
+.traits li > span:last-child {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
 .facts { display: grid; gap: 0; }
 .facts div {
   display: grid;
