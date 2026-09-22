@@ -982,14 +982,11 @@
 
 /* A desktop screenshot at the full 1200 would be 750px tall at 16:10. */
 .case--stacked .gallery[data-kind="desktop"] { max-width: 900px; }
-/* Several desktop screens: a two-up grid, full case width, so every screen is
-   visible at once and none hides behind a scroll. Each opens full size in the
-   lightbox as one set. */
-.gallery__grid { display: grid; gap: var(--sp-5); }
-.case--stacked .gallery[data-kind="desktop"]:has(.gallery__grid) { max-width: none; }
-@media (min-width: 700px) {
-  .gallery__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
+/* Several desktop screens: one row that scrolls sideways, the same rail the
+   HeyJag phones use. Full case width; each window is a fixed share of it so
+   the next one peeks in and says there is more. */
+.case--stacked .gallery[data-kind="desktop"]:has(.gallery__rail) { max-width: none; }
+.gallery__rail > .window { flex: 0 0 min(560px, 86%); }
 
 @media (min-width: 900px) {
   /* meta pinned right, on the same rows as the title and tagline */
