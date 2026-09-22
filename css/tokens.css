@@ -62,6 +62,7 @@
   --sp-9: 4rem;     --sp-10: 5rem;    --sp-11: 6rem;    --sp-12: 8rem;
 
   --section-y: clamp(5rem, 3rem + 9vw, 9rem);
+  --divider-gap: clamp(3.5rem, 2rem + 4vw, 5.5rem);   /* space either side of a section rule */
   --gutter:    clamp(1.25rem, 0.5rem + 3vw, 4rem);
   --container: 1200px;
   --prose:     68ch;

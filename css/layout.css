@@ -15,7 +15,17 @@
   scroll-margin-top: calc(var(--header-h) + var(--sp-4));
 }
 .section + .section { padding-top: 0; }
-.section--bordered { border-top: 1px solid var(--border); padding-top: var(--section-y); }
+/* A divider gets the same gap on both sides, everywhere. The rule above has
+   higher specificity than a lone .section--bordered, so it used to strip the
+   top gap from every bordered section except About (the only one that follows
+   the hero rather than another .section) — About sat 163px below its line and
+   every other heading 19px below its own. */
+.section--bordered,
+.section + .section--bordered {
+  border-top: 1px solid var(--border);
+  padding-top: var(--divider-gap);
+}
+:is(.section, .hero):has(+ .section--bordered) { padding-bottom: var(--divider-gap); }
 
 .section__head {
   display: flex;
