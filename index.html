@@ -145,10 +145,10 @@
     <nav class="nav" aria-label="Sections">
       <ul class="nav__list" id="navList">
         <li class="nav__marker" id="navMarker" aria-hidden="true"></li>
-        <li><a class="nav__link" href="#about">About</a></li>
-        <li><a class="nav__link" href="#experience">Experience</a></li>
         <li><a class="nav__link" href="#work">Work</a></li>
+        <li><a class="nav__link" href="#experience">Experience</a></li>
         <li><a class="nav__link" href="#skills">Skills</a></li>
+        <li><a class="nav__link" href="#about">About</a></li>
         <li><a class="nav__link" href="#credentials">Credentials</a></li>
         <li><a class="nav__link" href="#contact">Contact</a></li>
       </ul>
@@ -172,10 +172,10 @@
   </div>
 
   <nav class="nav-panel" id="navPanel" aria-label="Sections" hidden>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
     <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
+    <a href="#about">About</a>
     <a href="#credentials">Credentials</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -282,167 +282,10 @@
 </section>
 
 <!-- ================= ABOUT ================= -->
-<section class="section section--bordered" id="about" aria-labelledby="about-h">
-  <div class="container">
-    <div class="section__head reveal">
-      <p class="section__num"><b>01</b> <span>About</span></p>
-      <h2 id="about-h">The short version</h2>
-    </div>
-
-    <div class="about__grid">
-      <div class="about__body reveal">
-        <p>
-          I’m Mark, from South Cotabato in the southern Philippines. In my second year of
-          college I started taking on projects for other students and entering competitions to
-          push myself — and ended up winning several of them.
-        </p>
-        <p>
-          What I care about most is what users never see: the code that keeps an app fast,
-          reliable and secure long after launch day.
-        </p>
-      </div>
-
-      <div class="card reveal" style="--reveal-delay:80ms">
-        <dl class="facts">
-          <div><dt>Location</dt><dd>South Cotabato, Philippines · remote worldwide</dd></div>
-          <div><dt>Education</dt><dd>BS Information Technology, <strong>Cum Laude</strong> (2020–2024)<br>
-            <span class="text-subtle">South East Asian Institute of Technology, Inc.</span></dd></div>
-          <div><dt>Clients</dt><dd>United States · Australia · Honduras · Philippines</dd></div>
-          <div><dt>Availability</dt><dd>Open to full-time and contract roles</dd></div>
-          <div><dt>Languages</dt><dd>English · Filipino</dd></div>
-        </dl>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= EXPERIENCE ================= -->
-<section class="section section--bordered" id="experience" aria-labelledby="exp-h">
-  <div class="container">
-    <div class="section__head reveal">
-      <p class="section__num"><b>02</b> <span>Experience</span></p>
-      <h2 id="exp-h">Client work across multiple countries</h2>
-    </div>
-
-    <div class="timeline">
-
-      <article class="role role--current reveal">
-        <p class="role__period">Mar 2026 —<span class="visually-hidden"> to present</span></p>
-        <div class="role__head">
-          <h3 class="role__title">Tropiland OS — Full-Stack Developer</h3>
-          <span class="role__org">Tropiland Aggregates</span>
-        </div>
-        <p class="role__where">Philippines · Part-time · Remote</p>
-        <ul class="role__points">
-          <li>Building an <strong>ERP for quarry operations</strong> across multiple sites</li>
-          <li>Purchase orders, delivery receipts and statements of account, per quarry</li>
-          <li>Domain layer where no transaction can cross quarries, covered by <strong>76 tests</strong></li>
-        </ul>
-        <div class="role__tech cluster">
-          <span class="chip">Next.js</span><span class="chip">TypeScript</span>
-          <span class="chip">React</span><span class="chip">Zod</span>
-          <span class="chip">TanStack Table</span><span class="chip">Zustand</span>
-        </div>
-      </article>
-
-      <article class="role role--current reveal">
-        <p class="role__period">Apr 2025 —<span class="visually-hidden"> to present</span></p>
-        <div class="role__head">
-          <h3 class="role__title">Full-Stack Developer</h3>
-          <span class="role__org">HeyJag</span>
-        </div>
-        <p class="role__where">Florida, USA · Remote</p>
-        <ul class="role__points">
-          <li>Rebuilt an off-the-shelf marketplace platform into <strong>four live apps</strong></li>
-          <li>Wrote the merchant app, the provider app and all <strong>105 Cloud Functions</strong> from scratch</li>
-          <li>Built POS integrations, Stripe payment holds and a weekly vendor payout ledger</li>
-          <li>Maintain the two <strong>Laravel 10</strong> admin panels behind it — store and super-admin</li>
-        </ul>
-        <div class="role__tech cluster">
-          <span class="chip">Flutter</span><span class="chip">Node.js</span>
-          <span class="chip">Firebase Functions</span><span class="chip">Stripe</span>
-          <span class="chip">Google Maps</span><span class="chip">ML Kit</span>
-          <span class="chip">POS APIs</span><span class="chip">Background Services</span>
-        </div>
-      </article>
-
-      <article class="role reveal">
-        <p class="role__period">Dec 2024 — Apr 2025</p>
-        <div class="role__head">
-          <h3 class="role__title">Fuzion+ — Desktop Developer</h3>
-          <span class="role__org">Nebulex</span>
-        </div>
-        <p class="role__where">Sydney, Australia · Remote</p>
-        <ul class="role__points">
-          <li>Built <strong>native platform channels</strong> — Swift IOKit, C++ Win32 PDH</li>
-          <li>Shipped a multi-window architecture with background tray management</li>
-        </ul>
-        <div class="role__tech cluster">
-          <span class="chip">Flutter</span><span class="chip">Swift</span><span class="chip">C++</span>
-          <span class="chip">macOS IOKit</span><span class="chip">Windows API</span>
-        </div>
-      </article>
-
-      <article class="role reveal">
-        <p class="role__period">Aug — Nov 2024</p>
-        <div class="role__head">
-          <h3 class="role__title">Hoya Job Search — Mobile Developer</h3>
-          <span class="role__org">Nebulex</span>
-        </div>
-        <p class="role__where">Sydney, Australia · Remote</p>
-        <ul class="role__points">
-          <li>Ported a JavaScript and .NET web platform to one Flutter codebase</li>
-          <li>Integrated REST APIs with <strong>OAuth2</strong> authentication</li>
-        </ul>
-        <div class="role__tech cluster">
-          <span class="chip">Flutter</span><span class="chip">REST APIs</span>
-          <span class="chip">OAuth2</span><span class="chip">.NET backend</span>
-        </div>
-      </article>
-
-      <article class="role reveal">
-        <p class="role__period">Jun — Dec 2024</p>
-        <div class="role__head">
-          <h3 class="role__title">MaxTracks — Mobile Developer</h3>
-          <span class="role__org">Max Shipping</span>
-        </div>
-        <p class="role__where">Honduras, Central America · Remote</p>
-        <ul class="role__points">
-          <li>Built package tracking with <strong>barcode scanning</strong> and cloud storage</li>
-          <li>Ran inventory across multiple warehouse locations</li>
-        </ul>
-        <div class="role__tech cluster">
-          <span class="chip">Flutter</span><span class="chip">Firebase</span>
-          <span class="chip">Barcode Scanning</span><span class="chip">Cloud Storage</span>
-        </div>
-      </article>
-
-      <article class="role reveal">
-        <p class="role__period">Sep 2023 — Apr 2024</p>
-        <div class="role__head">
-          <h3 class="role__title">FarmFinds — Developer</h3>
-          <span class="role__org">Department of Agriculture XII</span>
-        </div>
-        <p class="role__where">Marbel, Philippines</p>
-        <ul class="role__points">
-          <li>Built a farmer-to-consumer marketplace for the <strong>Department of Agriculture</strong></li>
-          <li>Won the <strong>Young Farmers Challenge</strong>, Provincial Level 2023</li>
-        </ul>
-        <div class="role__tech cluster">
-          <span class="chip">Flutter</span><span class="chip">Firebase</span>
-          <span class="chip">Google Maps</span><span class="chip">Payment Gateway</span>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= WORK ================= -->
 <section class="section section--bordered" id="work" aria-labelledby="work-h">
   <div class="container">
     <div class="section__head reveal">
-      <p class="section__num"><b>03</b> <span>Selected work</span></p>
+      <p class="section__num"><b>01</b> <span>Selected work</span></p>
       <h2 id="work-h">Featured projects</h2>
     </div>
 
@@ -941,11 +784,10 @@
   </div>
 </section>
 
-<!-- ================= OTHER PROJECTS ================= -->
 <section class="section" aria-labelledby="other-h">
   <div class="container">
     <div class="section__head reveal">
-      <p class="section__num"><b>04</b> <span>Also built</span></p>
+      <p class="section__num"><b>02</b> <span>Also built</span></p>
       <h2 id="other-h">Earlier projects</h2>
     </div>
 
@@ -989,11 +831,131 @@
   </div>
 </section>
 
-<!-- ================= SKILLS ================= -->
+<section class="section section--bordered" id="experience" aria-labelledby="exp-h">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="section__num"><b>03</b> <span>Experience</span></p>
+      <h2 id="exp-h">Client work across multiple countries</h2>
+    </div>
+
+    <div class="timeline">
+
+      <article class="role role--current reveal">
+        <p class="role__period">Mar 2026 —<span class="visually-hidden"> to present</span></p>
+        <div class="role__head">
+          <h3 class="role__title">Tropiland OS — Full-Stack Developer</h3>
+          <span class="role__org">Tropiland Aggregates</span>
+        </div>
+        <p class="role__where">Philippines · Part-time · Remote</p>
+        <ul class="role__points">
+          <li>Building an <strong>ERP for quarry operations</strong> across multiple sites</li>
+          <li>Purchase orders, delivery receipts and statements of account, per quarry</li>
+          <li>Domain layer where no transaction can cross quarries, covered by <strong>76 tests</strong></li>
+        </ul>
+        <div class="role__tech cluster">
+          <span class="chip">Next.js</span><span class="chip">TypeScript</span>
+          <span class="chip">React</span><span class="chip">Zod</span>
+          <span class="chip">TanStack Table</span><span class="chip">Zustand</span>
+        </div>
+      </article>
+
+      <article class="role role--current reveal">
+        <p class="role__period">Apr 2025 —<span class="visually-hidden"> to present</span></p>
+        <div class="role__head">
+          <h3 class="role__title">Full-Stack Developer</h3>
+          <span class="role__org">HeyJag</span>
+        </div>
+        <p class="role__where">Florida, USA · Remote</p>
+        <ul class="role__points">
+          <li>Rebuilt an off-the-shelf marketplace platform into <strong>four live apps</strong></li>
+          <li>Wrote the merchant app, the provider app and all <strong>105 Cloud Functions</strong> from scratch</li>
+          <li>Built POS integrations, Stripe payment holds and a weekly vendor payout ledger</li>
+          <li>Maintain the two <strong>Laravel 10</strong> admin panels behind it — store and super-admin</li>
+        </ul>
+        <div class="role__tech cluster">
+          <span class="chip">Flutter</span><span class="chip">Node.js</span>
+          <span class="chip">Firebase Functions</span><span class="chip">Stripe</span>
+          <span class="chip">Google Maps</span><span class="chip">ML Kit</span>
+          <span class="chip">POS APIs</span><span class="chip">Background Services</span>
+        </div>
+      </article>
+
+      <article class="role reveal">
+        <p class="role__period">Dec 2024 — Apr 2025</p>
+        <div class="role__head">
+          <h3 class="role__title">Fuzion+ — Desktop Developer</h3>
+          <span class="role__org">Nebulex</span>
+        </div>
+        <p class="role__where">Sydney, Australia · Remote</p>
+        <ul class="role__points">
+          <li>Built <strong>native platform channels</strong> — Swift IOKit, C++ Win32 PDH</li>
+          <li>Shipped a multi-window architecture with background tray management</li>
+        </ul>
+        <div class="role__tech cluster">
+          <span class="chip">Flutter</span><span class="chip">Swift</span><span class="chip">C++</span>
+          <span class="chip">macOS IOKit</span><span class="chip">Windows API</span>
+        </div>
+      </article>
+
+      <article class="role reveal">
+        <p class="role__period">Aug — Nov 2024</p>
+        <div class="role__head">
+          <h3 class="role__title">Hoya Job Search — Mobile Developer</h3>
+          <span class="role__org">Nebulex</span>
+        </div>
+        <p class="role__where">Sydney, Australia · Remote</p>
+        <ul class="role__points">
+          <li>Ported a JavaScript and .NET web platform to one Flutter codebase</li>
+          <li>Integrated REST APIs with <strong>OAuth2</strong> authentication</li>
+        </ul>
+        <div class="role__tech cluster">
+          <span class="chip">Flutter</span><span class="chip">REST APIs</span>
+          <span class="chip">OAuth2</span><span class="chip">.NET backend</span>
+        </div>
+      </article>
+
+      <article class="role reveal">
+        <p class="role__period">Jun — Dec 2024</p>
+        <div class="role__head">
+          <h3 class="role__title">MaxTracks — Mobile Developer</h3>
+          <span class="role__org">Max Shipping</span>
+        </div>
+        <p class="role__where">Honduras, Central America · Remote</p>
+        <ul class="role__points">
+          <li>Built package tracking with <strong>barcode scanning</strong> and cloud storage</li>
+          <li>Ran inventory across multiple warehouse locations</li>
+        </ul>
+        <div class="role__tech cluster">
+          <span class="chip">Flutter</span><span class="chip">Firebase</span>
+          <span class="chip">Barcode Scanning</span><span class="chip">Cloud Storage</span>
+        </div>
+      </article>
+
+      <article class="role reveal">
+        <p class="role__period">Sep 2023 — Apr 2024</p>
+        <div class="role__head">
+          <h3 class="role__title">FarmFinds — Developer</h3>
+          <span class="role__org">Department of Agriculture XII</span>
+        </div>
+        <p class="role__where">Marbel, Philippines</p>
+        <ul class="role__points">
+          <li>Built a farmer-to-consumer marketplace for the <strong>Department of Agriculture</strong></li>
+          <li>Won the <strong>Young Farmers Challenge</strong>, Provincial Level 2023</li>
+        </ul>
+        <div class="role__tech cluster">
+          <span class="chip">Flutter</span><span class="chip">Firebase</span>
+          <span class="chip">Google Maps</span><span class="chip">Payment Gateway</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <section class="section section--bordered" id="skills" aria-labelledby="skills-h">
   <div class="container">
     <div class="section__head reveal">
-      <p class="section__num"><b>05</b> <span>Skills</span></p>
+      <p class="section__num"><b>04</b> <span>Skills</span></p>
       <h2 id="skills-h">What I work with</h2>
     </div>
 
@@ -1045,7 +1007,40 @@
   </div>
 </section>
 
-<!-- ================= CREDENTIALS ================= -->
+<section class="section section--bordered" id="about" aria-labelledby="about-h">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="section__num"><b>05</b> <span>About</span></p>
+      <h2 id="about-h">The short version</h2>
+    </div>
+
+    <div class="about__grid">
+      <div class="about__body reveal">
+        <p>
+          I’m Mark, from South Cotabato in the southern Philippines. In my second year of
+          college I started taking on projects for other students and entering competitions to
+          push myself — and ended up winning several of them.
+        </p>
+        <p>
+          What I care about most is what users never see: the code that keeps an app fast,
+          reliable and secure long after launch day.
+        </p>
+      </div>
+
+      <div class="card reveal" style="--reveal-delay:80ms">
+        <dl class="facts">
+          <div><dt>Location</dt><dd>South Cotabato, Philippines · remote worldwide</dd></div>
+          <div><dt>Education</dt><dd>BS Information Technology, <strong>Cum Laude</strong> (2020–2024)<br>
+            <span class="text-subtle">South East Asian Institute of Technology, Inc.</span></dd></div>
+          <div><dt>Clients</dt><dd>United States · Australia · Honduras · Philippines</dd></div>
+          <div><dt>Availability</dt><dd>Open to full-time and contract roles</dd></div>
+          <div><dt>Languages</dt><dd>English · Filipino</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section section--bordered" id="credentials" aria-labelledby="cred-h">
   <div class="container">
     <div class="section__head reveal">
